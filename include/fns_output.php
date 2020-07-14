@@ -333,23 +333,23 @@ function returnLanguage($langs, $isLink) {
                 break;
             case "it":
                 $language = "Итальянский";
-                $languageimg = "14.png";
+                $languageimg = "13.png";
                 break;
             case "pt":
                 $language = "Португальский";
-                $languageimg = "15.png";
+                $languageimg = "14.png";
                 break;
             case "tr":
                 $language = "Турецкий";
-                $languageimg = "16.png";
+                $languageimg = "15.png";
                 break;
             case "ja":
                 $language = "Японский";
-                $languageimg = "17.png";
+                $languageimg = "16.png";
                 break;
             case "el":
                 $language = "Греческий";
-                $languageimg = "18.png";
+                $languageimg = "17.png";
                 break;
         }
 
@@ -394,19 +394,18 @@ function CardTeacher($tovs) {
     //echo "<pre>";
     //var_dump($tovs);
     //echo "</pre>";
-    
     $q = '<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 p-1">
             <div class="teachers-item d-flex">
                 <div class="teachers-img">
-                  <a href="/teacher"><img src="../images/tovars/b-'.$tovs["imgs"][0]["name"].'" alt=""></a>
+                  <a href="teacher?id='.$tovs["id"].'"><img src="../images/tovars/b-'.$tovs["imgs"][0]["name"].'" alt=""></a>
                     <img src="../images/youtube 1.png" alt="" class="video-btn" data-toggle="modal"
                          data-src="'.str_replace('https://www.youtube.com/watch?v=','https://www.youtube.com/embed/',$tovs["alias"]).'?autoplay=1" data-target="#teachers-modal">
                 </div>
                 <div class="teachers-text-block">
-                    <span class="teacher-name"><a href="/teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/icon-flag/1.png" alt=""></span>
+                    <span class="teacher-name"><a href="teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/icon-flag/1.png" alt=""></span>
                     <p>Преподает: '.returnLanguage($tovs["attrs"]["yazyki-prepadaet"]["val"], true).'</p>
                     <p>Говорит на: '.returnLanguage($tovs["attrs"]["yazyki-govorit"]["val"], false).'</p>
-                    <p class="teachers-decs d-none d-sm-block">'. stristr($tovs["attrs"]["opisanie"]["val"], '*', true)  .' <a href="/teacher?id='.$tovs["id"].'" class="more-teacher">Подробнее →</a></p>
+                    <p class="teachers-decs d-none d-sm-block">'. stristr($tovs["attrs"]["opisanie"]["val"], '*', true)  .' <a href="teacher?id='.$tovs["id"].'" class="more-teacher">Подробнее →</a></p>
                 </div>
             </div>
         </div>';
