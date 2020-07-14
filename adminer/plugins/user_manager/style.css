@@ -1,0 +1,22 @@
+.form_cab{width:500px;float:left}
+.form_cab fieldset{border-radius:10px;border:1px solid #555;padding:20px}
+.form_cab label{display:block;float:left;width:150px}
+.form_cab input[type=text], .form_cab input[type=password]{width:250px;border:1px solid #aaa;padding:2px 5px}
+.form_cab legend{font-weight:bold;}
+.pluglist{float:right;width:250px}
+.pluglist ul{float:right;width:250px;overflow:auto;max-height:350px;list-style-type:none;}
+.pluglist ul li{padding:3px}
+/*.pluglist ul li:nth-child(2n+1){background-color:#eee}*/
+.cb{clear:both}
+.hidden{display:none}
+#dialog_ok{position:fixed;top:0;left:45%; border:1px solid #69D376;background:#8BE596 url(galka.png) 10px 5px no-repeat;border-radius:0 0 15px 15px;z-index:1000;text-align:center;padding:13px 15px 13px 43px;color:#203523;font-weight:bold;width:auto}
+#dialog_false{position:fixed;top:0;left:45%; border:1px solid #CD3333;background:#EE3B3B url(x.png) 10px 5px no-repeat;border-radius:0 0 15px 15px;z-index:1000;text-align:center;padding:13px 15px 13px 43px;color:#203523;font-weight:bold;width:auto}
+.dialog label{float:left;display:block;width:100px}
+.dialog select, .dialog input[type=text]{width:150px}
+.dialog button{margin:30px 30px 10px 30px}
+
+#adduserform{height:0;overflow:hidden;}
+
+.clickableli:hover{background:gray!important;cursor:pointer;}
+
+#red_delete_true{background:#EE3B3B; display:none;}

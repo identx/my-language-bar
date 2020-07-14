@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html><head>
+<title>Админка: <!--*TITLE*--></title>
+<meta http-equiv="Content-Language" content="ru" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<script type="text/javascript" src="../../../js/jquery-1.9.1.min.js"></script>
+<link type="text/css" href="../../../css/jquery-ui-1.9.2.custom.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="../../../sel2/css/select2.min.css" media="all" />
+<script src="../../../sel2/js/select2.full.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery-ui-1.9.2.custom.min.js"></script>
+<script type="text/javascript" src="../../../js/jquery.ui.datepicker-ru.min.js"></script>
+<script type="text/javascript" src="../../../ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="../../../ckeditor/adapters/jquery.js"></script>
+<script type="text/javascript" src="js/uploader.js"></script>
+<script type="text/javascript" src="js/mask.js"></script>
+<script type="text/javascript" src="js/fns.js"></script>
+<script type="text/javascript" src="js/admin.js"></script>
+<script type="text/javascript" src="js/script-for-select.js"></script>
+
+<!-- <script type="text/javascript" src="js/script-for-select.js"></script> -->
+<link type="text/css" href="css/style.css" rel="stylesheet" />
+<body>
+<div id="head"><!--*MENU*--></div>
+<div id="site"><!--*ERROR*-->
+<!--*CONTENT*-->
+<!--*TEMPLATE*-->
+<!--*_MENU*-->
+<a href="?p=cats" class="btn ui-button ui-widget ui-state-default">Категории</a>
+<a href="?p=brands" class="btn ui-button ui-widget ui-state-default">Фирмы</a>
+<a href="?p=attrs" class="btn ui-button ui-widget ui-state-default">Шаблоны</a>
+<a href="?p=tovars" class="btn ui-button ui-widget ui-state-default">Товары</a>
+<a href="?p=action" class="btn ui-button ui-widget ui-state-default">Дополнительно</a>
+<!--*_MENU*-->
+
+<!--*_CAT_E*-->
+<form method="post" class="w7"><input type="hidden" name="nid" value="<!--*NID*-->" /><input type="hidden" name="root" value="<!--*ROOT*-->" />
+Наименование:<br />
+<input type="text" name="name" value="<!--*NAME*-->" class="txt" /><br />
+Псевдоним ЧПУ:<br />
+<input type="text" name="url" value="<!--*URL*-->" class="txt" /><br />
+css класс иконки:<br />
+<textarea class="txt h1" name="scomment"><!--*SCOMMENT*--></textarea><br />
+Порядок сортировки:<br />
+<textarea class="txt h1" name="fcomment"><!--*FCOMMENT*--></textarea><br /><br />
+<div class="ta_r"><a href="?p=cats" class="btn ui-button ui-widget ui-state-default">Назад<a/>
+<input type="submit" value="Сохранить" class="btn ui-button ui-widget ui-state-default" /></div>
+</form><br />
+<form method="post" action="?p=tvrs"><input type="hidden" name="cat" value="<!--*NID*-->"/><input type="submit" value="Перейти к товарам категории"  class="btn ui-button ui-widget ui-state-default"/></form>
+<!--*_CAT_E*-->
+<!--*_CAT_BACK*-->
+<div class="pad1">
+<a href="?p=cats" class="btn ui-button ui-widget ui-state-default">К категориям</a>
+<a href="?p=cats&add=<!--*ROOT*-->" class="btn ui-button ui-widget ui-state-default">Добавить к родителю</a>
+<a href="?p=cats&add=<!--*CHILD*-->" class="btn ui-button ui-widget ui-state-default">Добавить к новому/изменненому</a>
+</div>
+<!--*_CAT_BACK*-->
+
+<!--*_T_TVR_E*-->
+<form method="post" class="w7" onsubmit="if(name.value.length<=0){ name.focus(); return false};"><input type="hidden" name="ttid" value="<!--*TTID*-->" />
+Наименование шаблона:<br />
+<input type="text" class="txt" name="name" value="<!--*NAME*-->" /><br />
+<div id="t_t_ilist"><i>Отметьте нужные поля для шаблона</i><br /><!--*LIST*--><div class="cb"></div></div>
+<br /><div class="ta_r">
+<input type="button" id="t_t_addattr" value="Добавить атрибут" class="fl btn ui-button ui-widget ui-state-default" />
+<a href="?p=t_tvr&add=<!--*TTID*-->" class="btn ui-button ui-widget ui-state-default">Клонировать<a/>
+<a href="?p=t_tvr" class="btn ui-button ui-widget ui-state-default">Назад<a/>
+<input type="submit" value="Сохранить" class="btn ui-button ui-widget ui-state-default" /></div>
+</form>
+<div class="nodisplay">
+<div id="t_t_addattr_dialog" title="Добавление атрибута">
+	Название (RU):<br />
+	<input type="text" id="t_t_dtitle" value="" class="txt" /><br />
+	Имя переменной (EN):<br />
+	<input type="text" id="t_t_dname" maxlength="50" value="" class="txt"/><br />
+	Ед. измерения:<br />
+	<input type="text" id="t_t_dunit" maxlength="10" value="" class="txt"/><br />
+	Тип данных:<br />
+	<select id="t_t_dtype" class="txt">
+	<option value="6" rel="string">string - строка до 250 символов</option>
+	<option value="1" rel="bool">bool - логический (да/нет)</option>
+	<option value="2" rel="int">int - целочисленный</option>
+	<option value="3" rel="double">double - вещественный</option>
+	<option value="4" rel="date">date - дата</option>
+	<option value="5" rel="datetime">datetime - дата/время</option>
+	<option value="7" rel="text">text - строка до 65535 символов</option>
+	<option value="8" rel="list">list - список, элементы через (;)</option>
+	<option value="9" rel="firm">firm - индекс фирма из таблицы</option>
+	<option value="10" rel="imgs">imgs - изображения в базе через</option>
+	</select><br />
+	Список для типа list через (;)<br />
+	<textarea id="t_t_dlist" class="txt h1"></textarea>
+	<label><input type="checkbox" id="t_t_dopt1" value="1" <!--*CHK*--> /> Выводить в фильтре</label>
+</div>
+</div>
+<!--*_T_TVR_E*-->
+<!--*_T_TVR_ATTR*--><span class="fl d_inl_bl w49p"><label><input type="checkbox" name="t_t_a[]" value="<!--*ATRID*-->" <!--*CHK*--> /><!--*NAME*--> (<!--*TYPE*-->)</label></span><!--*_T_TVR_ATTR*-->
+<!--*_T_TVR_ATTR_N*--><span class="fl d_inl_bl w49p"><label><input type="checkbox" name="t_t_anew[]" value="<!--*VALUE*-->" <!--*CHK*--> /><!--*NAME*--> (<!--*TYPE*-->)</label></span><!--*_T_TVR_ATTR_N*-->
+<!--*_T_TVR*--><a href="<!--*URL*-->" class="tvr_item hvr ui-button ui-widget ui-state-default"><!--*NAME*--></a><!--*_T_TVR*-->
+<!--*_T_TVRS*-->
+<div><!--*CONT*--><div class="cb"></div></div>
+<!--*_T_TVRS*-->
+
+<!--*_ATTR_CHK_back*--><!--*TITLE*--><br /><input type="checkbox" name="<!--*NAME*-->" <!--*VALUE*--> /><br /><!--*_ATTR_CHK_back*-->
+<!--*_ATTR_CHK*--><!--*TITLE*--><br /><select class="wide_sel" name="<!--*NAME*-->"><!--*VALUE*--> /></select><br /><!--*_ATTR_CHK*-->
+<!--*_ATTR_INP*--><!--*TITLE*--><br /><input class="txt" type="text" name="<!--*NAME*-->" value="<!--*VALUE*-->" /><br /><!--*_ATTR_INP*-->
+<!--*_ATTR_INPDATE*--><!--*TITLE*--><br /><input class="txt-short datepicker" type="text" name="<!--*NAME*-->" value="<!--*VALUE*-->" /><br /><!--*_ATTR_INPDATE*-->
+<!--*_ATTR_INPINT*--><!--*TITLE*--><br /><input class="txt-short spinner" type="text" name="<!--*NAME*-->" value="<!--*VALUE*-->" /><br /><!--*_ATTR_INPINT*-->
+<!--*_ATTR_TXT*--><!--*TITLE*--><br /><textarea class="txt h1" name="<!--*NAME*-->"><!--*VALUE*--></textarea><br /><!--*_ATTR_TXT*-->
+<!--*_ATTR_SEL*--><!--*TITLE*--><br /><select class="txt superselect" name="<!--*NAME*-->"><!--*VALUE*-->"</select><br /><!--*_ATTR_SEL*-->
+<!--*_ATTR_FIRM*--><!--*TITLE*--> (введите имя или выберите из списка)<br /><input class="txt" type="text" name="addfirm" value="" /><br />
+<select class="txt superselect" name="<!--*NAME*-->"><!--*VALUE*-->"</select><br /><!--*_ATTR_FIRM*-->
+
+<!--*_ATTR_IMGS2*--><!--*TITLE*--><input type="hidden" id="imgs_name" value="<!--*NAME*-->"/><br />
+<input id="file_upload" name="file_upload" type="file" multiple="true" rel="ad_il">
+<div id="img_cont"><div class="error"></div><!--*IMGS*--></div><!--*_ATTR_IMGS2*-->
+
+<!--*_ATTR_IMGS*--><!--*TITLE*--><input type="hidden" id="imgs_name" value="<!--*NAME*-->"/>
+<input type="hidden" id="imgs_sort" name="imgs_sort" value="<!--*SORT*-->"/>
+<input type="hidden" id="imgs_del" name="imgs_del" value=""/>
+<br />
+<input id="file_upload" name="file_upload" type="file" multiple="true" rel="ad_il">
+<div class="error"></div>
+<ul id="img_cont"><!--*IMGS*--></ul><!--*_ATTR_IMGS*-->
+<!--*_ATTR_IMG*-->
+<li class="img_r" rel="<!--*ID*-->">
+<span class="img_dv"><img src="<!--*IMG*-->" alt="" /><span class="img_del ui-button ui-widget ui-state-default"><span class="ui-icon ui-icon-circle-close"></span></span></span>
+<span class="img_dv2">
+<input type="hidden" name="<!--*NAME*-->_iid[]" value="<!--*ID*-->" />
+Заголовок:<br /><input class="w4 im_ttl" type="text" name="<!--*NAME*-->_ititle[]" class="img_title" value="<!--*TITLE*-->" /><br />
+Имя файла (-_a-z0-9):<br /><input class="w4 im_name" type="text" name="<!--*NAME*-->_ifile[]" class="img_file" value="<!--*FILE*-->" /><br />
+Комментарий:<br /><textarea class="w4" name="<!--*NAME*-->_idescr[]" class="img_descr"><!--*DESC*--></textarea></span>
+</li>
+<!--*_ATTR_IMG*-->
+<!--*_TVR_EE*-->
+<form method="post">Категория:<br /><select name="cat" class="w5 ui-widget ui-state-default superselect"><!--*C_LIST*--></select> <input type="submit" value="Применить" class="btn w2 ui-button ui-widget ui-state-default" /></form>
+<form method="post">Шаблон товара<br /><select name="templ" class="w5 ui-widget ui-state-default superselect"><!--*T_LIST*--></select> <input type="submit" value="Применить" class="btn w2 ui-button ui-widget ui-state-default" /></form>
+<form method="post" class="w7"><input type="hidden" id="tvid" name="tvid" value="<!--*TVID*-->" /><input type="hidden" id="sid" value="<!--*SID*-->" /><input type="hidden" id="tstamp" name="tstamp" value="<!--*TIME*-->" />
+<!--*CONT*-->
+<br />ID записи: <!--*TVID*-->
+<br /><div class="ta_r">
+<a href="?p=tvrs&id=<!--*TVID*-->" style="display:none;">Удалить</a>
+<a href="#" class="tvr_del btn ui-button ui-widget ui-state-default">Удалить</a> <a href="?p=tvrs" class="btn ui-button ui-widget ui-state-default">Назад</a>
+<input type="submit" value="Сохранить" class="btn ui-button ui-widget ui-state-default" /></div>
+</form>
+<!--*_TVR_EE*-->
+<!--*_TVR_CAT*--><form method="post" id="t_tvr_form_chb"><div id="tvr_tools">
+<table border="0"><tr><td colspan="1"><label><input type="checkbox" id="sel_all_tvr" />Выбрать все товары</label></td></tr><tr>
+<td>Категория (перейти | переместить выбранное)<br /><select id="tvr_cat" name="cat" class="ui-widget ui-state-default"><!--*CAT_LIST*--></select></td>
+</tr></table>
+</div><!--*_TVR_CAT*-->
+<!--*_DIVIDER*--><br style="clear:both"><h3><!--*TEMPLNAME*--></h3><hr /><!--*_DIVIDER*-->
+<!--*_TVR*--><div class="tvr_item2"><input type="checkbox" class="t_tvr_chb" name="t_tvr_chb[]" value="<!--*TVID*-->" /><a href="<!--*URL*-->" class="tvr_item hvr ui-button ui-widget ui-state-default" title="ID записи: <!--*TVID*-->"><!--*IMAGE*--><!--*NAME*--></a></div><!--*_TVR*-->
+<!--*_TVRS*--><div><!--*CONT*--><div class="cb"></div></div></form><!--*_TVRS*-->
+
+<!--*_FIRM*--><a href="<!--*URL*-->" class="firm_item hvr ui-button ui-widget ui-state-default"><!--*NAME*--></a><!--*_FIRM*-->
+<!--*_FIRM_E*--><form method="post" class="w7"><input type="hidden" name="fid" value="<!--*ID*-->" />
+Наименование:<br /><input class="txt" type="text" name="name" value="<!--*NAME*-->" /><br />
+Ссылка на сайт:<br /><input class="txt" type="text" name="url" value="<!--*URL*-->" /><br />
+Логотип:<br /><input type="hidden" id="sid" value="<!--*SID*-->" /><input type="hidden" id="tstamp" name="tstamp" value="<!--*TIME*-->" />
+<input id="file_upload2" name="file_upload" type="file" rel="ad_il">
+<div id="img_cont1"><div class="error"></div><!--*IMG_LOGO*--></div><br />
+Фотографии:<br />
+<input id="file_upload3" name="file_upload" type="file" multiple="true" rel="ad_il">
+<div id="img_cont2"><div class="error"></div><!--*IMG_PHOTO*--></div><br />
+Сокращенное описание:<br />
+<textarea class="txt h1" name="sdescr"><!--*SDESCR*--></textarea><br />
+Полное описание:<br />
+<textarea class="txt h1" name="fdescr"><!--*FDESCR*--></textarea><br />
+<div class="ta_r">
+<a href="?p=firms" class="btn ui-button ui-widget ui-state-default">Назад<a/>
+<input type="submit" value="Сохранить" class="btn ui-button ui-widget ui-state-default" />
+</div></form><!--*_FIRM_E*-->
+<!--*_FIRM_LOGO*--><div class="img_r">
+<span class="img_dv"><img src="<!--*IMG*-->" alt="" /></span>
+<span class="img_dv2">
+<input type="hidden" name="logo_id" value="<!--*ID*-->" />
+Заголовок:<br /><input class="w4 im_ttl" type="text" name="logo_title" class="img_title" value="<!--*TITLE*-->" /><br />
+Имя файла (-_a-z0-9):<br /><input class="w4 im_name" type="text" name="logo_file" class="img_file" value="<!--*FILE*-->" /><br />
+Комментарий:<br /><textarea class="w4" name="logo_descr" class="img_descr"><!--*DESC*--></textarea></span>
+</div><!--*_FIRM_LOGO*-->
+<!--*_FIRM_PHOTO*--><div class="img_r">
+<span class="img_dv"><img src="<!--*IMG*-->" alt="" /></span>
+<span class="img_dv2">
+<input type="hidden" name="imgs_id[]" value="<!--*ID*-->" />
+Заголовок:<br /><input class="w4 im_ttl" type="text" name="imgs_title[]" class="img_title" value="<!--*TITLE*-->" /><br />
+Имя файла (-_a-z0-9):<br /><input class="w4 im_name" type="text" name="imgs_file[]" class="img_file" value="<!--*FILE*-->" /><br />
+Комментарий:<br /><textarea class="w4" name="imgs_descr[]" class="img_descr"><!--*DESC*--></textarea></span>
+</div><!--*_FIRM_PHOTO*-->
+
+<!--*_LOGIN_FORM*-->
+<form method="post" id="login_form">
+Логин: <input type="text" name="login" value="" /><br />
+Пароль: <input type="password" name="password" value="" /><br />
+<input type="submit" value="Вход" />
+</form>
+<!--*_LOGIN_FORM*-->
+
+<!--*_MAKEQUERY_FORM*-->
+<center><br /><form method="post">
+В базе данных не найдены таблицы, проверьте <b>подключение в файле конфигурации</b>.<br />
+Если авторизационные данные верны возможно не хватает таблиц и папок.<br />Для их добавления нажмите кнопку "Добавить".<br />
+<br /><input type="submit" name="make_new_dbtable" value="Добавить" />
+</form></center>
+<!--*_MAKEQUERY_FORM*-->
+
+<!--*_MAKEQUERY_FORM*-->
+<center><br /><form method="post">
+В базе данных не найдены таблицы, проверьте <b>подключение в файле конфигурации</b>.<br />
+Если авторизационные данные верны возможно не хватает таблиц и папок.<br />Для их добавления нажмите кнопку "Добавить".<br />
+<br /><input type="submit" name="make_new_dbtable" value="Добавить" />
+</form></center>
+<!--*_MAKEQUERY_FORM*-->
+
+<!--*_MAKEQUERY_NOERROR_FORM*-->
+<center><br />Если не выведено ошибок скорее всего все сделано успешно, попробуйте выполнить вход =).</center>
+<!--*_MAKEQUERY_NOERROR_FORM*-->
+
+<!--*TEMPLATE*-->
+</div>
+</body>
+</html>

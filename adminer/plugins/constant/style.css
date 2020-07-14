@@ -1,0 +1,65 @@
+.field {
+	width: 100px;
+	padding: 5px 5px;
+	margin: 5px 5px;
+}
+
+
+.field-two {
+	width: 300px;
+	padding: 5px 5px;
+}
+
+.add-field-1 {
+	width: 100px;
+	margin: 5px 5px;
+	display: inline-block;
+}
+
+.add-field-2 {
+	width: 100px;
+	margin: 5px 5px;	
+	display: inline-block;
+}
+
+
+
+
+.add-field-t {
+	width: 515px;
+	padding: 5px 5px;
+	margin: 5px 5px;
+}
+
+.d-desc, .d-add {
+	margin: 0 auto;
+	display: block;
+	max-width: 800px;
+}
+
+.div-1, .div-2, .div-3, .del {
+	display: inline-block;
+}
+.div-1 {
+	width: 80px;
+}
+
+.del {
+	padding: 3px;
+	margin: 0px 5px;
+	
+	
+	text-align: center;
+	display: inline-block;
+}
+
+.edit {
+	padding: 3px;
+	margin: 0px 5px;
+	
+	
+	text-align: center;	
+	display: inline-block;
+}
+
+#loading{position:absolute;z-index:99999;background:rgba(0,0,0,0.15) url('loading.gif') center center no-repeat;height:100%;width:100%;left:0;top:0;display:none;}

@@ -1,0 +1,74 @@
+.visuallyhidden {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  opacity: 0;
+
+}
+
+.card-carousel {
+  --card-width: 80%;
+  --card-max-width: 340px;
+  --card-height: 304px;
+  --carousel-min-width: 100%;
+  z-index: 1;
+  position: relative;
+  margin: 0 auto;
+  width: 100%;
+  height: var(--card-height);
+  min-width: var(--carousel-min-width);
+  transition: filter .3s ease;
+}
+
+@media screen and (max-width: 640px) {
+  .card-carousel {
+    max-width: 100%;
+  }
+}
+
+.card-carousel.smooth-return {
+  transition: all .2s ease;
+}
+
+.card-carousel .card {
+  background: #FAFAF8;
+  box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.03);
+  border: #dddddd 1px solid;
+  border-radius: 0;
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  padding: 20px 10px 0 33px;
+  min-width: 250px;
+  height: var(--card-height);
+  position: absolute;
+  margin: 0 auto;
+  color: rgba(0,0,0,.5);
+  filter: brightness(.9);
+}
+
+.card.highlight {
+  filter: brightness(1)
+}
+
+.card-carousel .card img {
+  margin-left: 9px;
+  width: 48px;
+  height: 48px;
+  position: absolute;
+}
+
+.card-carousel .card .name-author {
+  margin: 4px 0 0 69px;
+  font-size: 16px;
+  color: #343434;
+}
+
+.card-carousel .card .country-city-author {
+  margin: 0 0 0 69px;
+  font-size: 12px;
+}
+
+.card-carousel .card p {
+  margin-top: 13px;
+  color: #868686;
+}

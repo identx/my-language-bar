@@ -1,0 +1,20 @@
+html,body{margin:0;padding:0;width:100%;min-height:100%}
+body{font-family:Calibri,Arial,sans-serif;font-size:14px;color:#000}
+body,html{height:100%}
+#site{min-height:100%;border-collapse:collapse;width:100%;height:100%}
+#menu{vertical-align:top;width:200px;border-right:1px dotted #777}
+	#menu>a{display:block;background-color:#eee;border:2px solid #ddd;margin:3px 0;text-decoration:none;color:#777;padding:5px}
+	#menu>a:hover{background-color:#ddd;border:2px solid #ccc;margin:3px 0;text-decoration:none;color:#666}
+#head{height:65px;border-bottom:1px dotted #777;}
+#cont{vertical-align:top;padding:5px}
+
+/* LOGIN */
+#head_form{display:block;width:300px;position:absolute;top:50%;left:50%;margin:-200px 0 0 -150px; text-align:center;/* border:1px solid red; */}
+#head_form label{float:left;display:block;width:80px;line-height:24px;font-size:18px;margin-top:10px;text-align:left}
+#head_form input,#head_form select{border:1px solid #999;font-size:16px;background:#fff;border-radius:4px;padding:3px;margin-top:10px;width:185px}
+#head_form div{border-radius:3px;box-shadow:0px 0px 10px rgba(0,0,0,.1);margin-top:20px;padding:10px;background:#fff;border:1px solid #ddd}
+#head_form input[type=submit]{margin:10px 0 0 200px;background:#1885dc;color:#fff;font-size:14px;padding:5px;width:70px}
+#head_form input[type=submit]:hover{background:#2096e6;cursor:pointer}
+#form_logout{float:right;margin:20px;width:auto}
+#head_form .adduser_error{color:red;}
+/* /LOGIN */

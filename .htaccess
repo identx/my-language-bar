@@ -1,0 +1,53 @@
+AddDefaultCharset UTF-8
+Options +FollowSymLinks
+Options -Indexes
+
+php_value magic_quotes_gpc 0
+
+RewriteEngine on
+RewriteBase /
+
+#RewriteCond %{HTTPS} =off 
+#RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [QSA,L]
+
+#call handlers
+RewriteCond %{REQUEST_URI} !/handlers/$ [NC]
+RewriteCond %{REQUEST_URI} /$ [NC]
+RewriteRule ^(.*)(/)$ $1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} /handlers/ [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /handlers.php [L,QSA]
+
+# redirect url www.host.ru -> to -> host.ru
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule (.*) http://%1/$1 [R=301,L]
+
+# redirect url /index.php?query -> to -> /?query
+RewriteCond %{THE_REQUEST} \s\/index\.php(.*)\s
+RewriteRule (.*) /%1 [NS,R=301,L]
+
+RewriteCond %{THE_REQUEST} \s\/\s
+RewriteRule (.*) /ru/ [NS,R=301,L]
+
+# m.domain.ru in /m/
+#RewriteCond %{REQUEST_URI} !^/(m)/
+#RewriteCond %{HTTP_HOST} ^(www\.)?(m)\.
+#RewriteRule ^(.*)$ /%2/$1 [L,QSA]
+
+# call index.php for no file url
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ /index.php [L,QSA]
+
+<filesMatch ".(jpg|jpeg|png|gif|ico|svg)$">
+Header set Cache-Control "max-age=31536000, public"
+</filesMatch>
+# One month for css and js
+<filesMatch ".(css|js)$">
+Header set Cache-Control "max-age=2628000, public"
+</filesMatch>
+
+ErrorDocument 404 /pages/p_404
+
+
+
