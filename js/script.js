@@ -1,13 +1,16 @@
 $(function(){
 
 
-
 	$('#payment-form-btn').on('click', function(e){
 		e.preventDefault();
-
+		let data = {};
+		data.course = $('.payment-courses-select option:selected').text();
+		data.language = $('.payment-languages-select option:selected').text();
+		data.user = $('.alert strong').text()
+		data.amount = $('.hidden-amount').val();
+		console.log(data);
 		$.post('../handlers/add-transaction.php', data, function(r){
-			select.html(r);
-
+			
 			
 		},"json");
 
@@ -16,22 +19,26 @@ $(function(){
 
 
 
-	$('.payment-courses-select').on('change', function(){
+	$(document).on('change', '.payment-package-select', function(){
+		getAmount();
+	})
+
+	$(document).on('change', '.payment-courses-select', function(){
 		let select = $('.payment-package-select');
-		select.html('<option disabled="disabled">Пакет</option>');
 		select.attr('disabled', false);
 		data = {};
 		data.id_course = $(this).val();
 
 		$.post('../handlers/get-package.php', data, function(r){
 			select.html(r);
-
+			getAmount();
 			
 		},"json");
-
+		
 		checkCodeValue();
 		checkPayBtn();
-
+		
+		
 	})
 
 
@@ -118,15 +125,16 @@ function checkPayBtn() {
 		$('#payment-form-btn').removeAttr('disabled');
 		$('#payment-form-btn').removeClass('grey-btn');
 		$('#payment-form-btn').addClass('yellow-btn');
-		console.log($('.payment-courses-select').val());
 	}else {
 		$('#payment-form-btn').attr('disabled', 'disabled');
 		$('#payment-form-btn').addClass('grey-btn');
 		$('#payment-form-btn').removeClass('yellow-btn');
-	}
-
-	
+	}	
 }
+
+function getAmount() {	
+			$('.hidden-amount').val($('.payment-package-select option:selected').val());
+	}
 
 
 

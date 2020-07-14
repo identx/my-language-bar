@@ -72,8 +72,8 @@ $courses = $catalog->getCats($root=0);
 					<p class="text-center payment-form-title">
 						Укажите курс и количество часов
 					</p>
-					<p class="payment-form-text"><img class="course-icon" src="../images/icons/clock-3.svg" alt="">Урок в любом курсе длится 60 минут</p>
-					<p class="payment-form-text"><img class="course-icon" src="../images/icons/coin.svg" alt="">Оплата принимается от 2-х уроков</p>
+					<p class="payment-form-text"><img class="course-icon" src="/images/icons/clock-3.svg" alt="">Урок в любом курсе длится 60 минут</p>
+					<p class="payment-form-text"><img class="course-icon" src="/images/icons/coin.svg" alt="">Оплата принимается от 2-х уроков</p>
 					<form action="https://pay.skrill.com" method="post" target="_blank" id="payment-form">
 						<div class="check-info"></div>
 						<input type="text" id="payment-form-code" placeholder="Код учащегося">
@@ -99,7 +99,7 @@ $courses = $catalog->getCats($root=0);
 							<option>Греческий</option>
 						</select>
 						<select name="" id="" class="payment-courses-select">
-							<option value="">Курс</option>
+							<option value="" disabled="disabled" selected="selected">Курс</option>
 							<?php foreach($courses as $course) { ?>
 								<option value="<?=$course['id']?>"><?=$course['name']?></option>
 							<?php } ?>
@@ -110,7 +110,7 @@ $courses = $catalog->getCats($root=0);
 						<input type="hidden" name="pay_to_email" value="demoqco@sun-fish.com"> 
 						<input type="hidden" name="status_url" value="https://example.com/process_payment.cgi"> 
 						<input type="hidden" name="language" value="EN"> 
-						<input type="hidden" name="amount" value="1800"> 
+						<input class="hidden-amount" type="hidden" name="amount" value="1800"> 
 						<input type="hidden" name="currency" value="RUB"> 
 						<input type="hidden" name="detail1_description" value="Description:"> 
 						<input type="hidden" name="payment_methods" value="ALI"> 

@@ -79,7 +79,7 @@ $_SERVER['page']['js'] = '';
                 <div class="teacher-form-desc">
                     <h3>Оставь заявку<br>на вакансию</h3>
                     <p>Мы обязательно позвоним тебе<br>и обсудим детали</p>
-                    <div class="arrow-to-form"><img src="../images/arrow-to-form.svg" alt=""></div>
+                    <div class="arrow-to-form"><img src="/images/arrow-to-form.svg" alt=""></div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 teacher-form">

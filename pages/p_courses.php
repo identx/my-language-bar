@@ -12,13 +12,13 @@ $_SERVER['page']['js'] = '';
 <section class="courses">
     <div class="container">
         <h3 class="text-center">8 курсов по каждому из 17 языков</h3>
-        <p><img class="course-icon" src="../images/icons/clock-3.svg" alt="">Урок в любом курсе длится 60 минут</p>
-        <p><img class="course-icon" src="../images/icons/coin.svg" alt="">Оплата принимается от 2-х уроков</p>
+        <p><img class="course-icon" src="/images/icons/clock-3.svg" alt="">Урок в любом курсе длится 60 минут</p>
+        <p><img class="course-icon" src="/images/icons/coin.svg" alt="">Оплата принимается от 2-х уроков</p>
         <div class="row justify-content-center courses-block">
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="general-course">
                     <p class="text-number">1</p>
-                    <img src="../images/courses/1.png" class="position-absolute"
+                    <img src="/images/courses/1.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>GENERAL COURSE (Общий курс)</h4>
@@ -59,7 +59,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="spoken-course">
                     <p class="text-number">2</p>
-                    <img src="../images/courses/2.png" class="position-absolute"
+                    <img src="/images/courses/2.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>SPOKEN COURSE (Курс разговорного языка)</h4>
@@ -98,7 +98,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="preparation-for-exams">
                     <p class="text-number">3</p>
-                    <img src="../images/courses/3.png" class="position-absolute"
+                    <img src="/images/courses/3.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>PREPARATION FOR EXAMS (Курс подготовки к экзаменам)</h4>
@@ -137,7 +137,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="traveling-course">
                     <p class="text-number">4</p>
-                    <img src="../images/courses/4.png" class="position-absolute"
+                    <img src="/images/courses/4.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>TRAVELING COURSE (Курс для путешествий)</h4>
@@ -177,7 +177,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="intensive-course">
                     <p class="text-number">5</p>
-                    <img src="../images/courses/5.png" class="position-absolute"
+                    <img src="/images/courses/5.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 40px;" alt="">
                     <div class="courses-right-side">
                         <h4>INTENSIVE COURSE (Интенсивный курс)</h4>
@@ -219,7 +219,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="business-course">
                     <p class="text-number">6</p>
-                    <img src="../images/courses/6.png" class="position-absolute"
+                    <img src="/images/courses/6.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>BUSINESS COURSE (Бизнес-курс)</h4>
@@ -258,7 +258,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="course-for-kids">
                     <p class="text-number">7</p>
-                    <img src="../images/courses/7.png" class="position-absolute"
+                    <img src="/images/courses/7.png" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>COURSE FOR KIDS (Курс для детей от 5 лет, игровая методика)</h4>
@@ -298,7 +298,7 @@ $_SERVER['page']['js'] = '';
             <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="course-with-native-speakers">
                     <p class="text-number">8</p>
-                    <img src="../images/courses/8.png" class="position-absolute"
+                    <img src="/images/courses/8.png" class="position-absolute"
                     style="margin-left: 30px; margin-top: 30px;" alt="">
                     <div class="courses-right-side">
                         <h4>COURSE WITH NATIVE SPEAKERS (Курс с носителями языка)</h4>
@@ -349,7 +349,7 @@ $_SERVER['page']['js'] = '';
                 <div class="teacher-form-desc">
                     <h3>Подберем курс<br>под твои цели</h3>
                     <p>Будем рады видеть нового<br> гостя в нашем баре!</p>
-                    <div class="arrow-to-form"><img src="../images/arrow-to-form.svg" alt=""></div>
+                    <div class="arrow-to-form"><img src="/images/arrow-to-form.svg" alt=""></div>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 teacher-form">

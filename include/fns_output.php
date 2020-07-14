@@ -192,7 +192,7 @@ function output_footer()
     $r = '<footer>
     <div class="flags-img">
         <div class="container">
-            <img class="img-fluid" src="images/flags.png" alt="">
+            <img class="img-fluid" src="/images//flags.png" alt="">
         </div>
     </div>
     <div class="container top-footer">
@@ -214,16 +214,16 @@ function output_footer()
                     <div class="col-lg-7 col-md-7 col-sm-6 col-xs-6">
                         <ul>
                             
-                            <li><img src="images/icons/mail-wh.png" alt=""><a href="mailto:mylanguagebar@gmail.com">mylanguagebar@gmail.com</a></li>
-                            <li><img src="images/icons/skype-wh.png" alt=""><a href="skype:languagebar?call">Language Bar</a></li>
+                            <li><img src="/images//icons/mail-wh.png" alt=""><a href="mailto:mylanguagebar@gmail.com">mylanguagebar@gmail.com</a></li>
+                            <li><img src="/images//icons/skype-wh.png" alt=""><a href="skype:languagebar?call">Language Bar</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5 col-md-5 col-sm-6 col-xs-6">
                         <ul>
-                            <li><img src="images/icons/instagram-wh.png" alt="">
+                            <li><img src="/images//icons/instagram-wh.png" alt="">
                             <a href="" rel="nofollow" target="_blank">instagram_profile</a></li>
-                            <li><img src="images/icons/facebook-wh.png" alt=""><a href="" rel="nofollow" target="_blank">facebook_profile</a></li>
-                            <li><img src="images/icons/youtube-wh.png" alt=""><a href="" rel="nofollow" target="_blank">youtube-channel</a></li>
+                            <li><img src="/images//icons/facebook-wh.png" alt=""><a href="" rel="nofollow" target="_blank">facebook_profile</a></li>
+                            <li><img src="/images//icons/youtube-wh.png" alt=""><a href="" rel="nofollow" target="_blank">youtube-channel</a></li>
                         </ul>
                     </div>
                 </div>

@@ -48,7 +48,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
         if(in_array($lang, $lang_arr)) {
          $res .= '<div class="dropdown-teacher">
          <div class="teacher-img-block">
-         <img src="../images/tovars/s-'.$img_teacher.'" alt="">
+         <img src="/images/tovars/s-'.$img_teacher.'" alt="">
          </div>
          <a href="/teacher">'.$teacher['name'].'</a>
          <p>'.$cntry.', '.$add_attrs_teacher['attrs']['gorod']['val'].'</p>
@@ -83,7 +83,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 
 <div class="flags-img">
     <div class="container">
-        <img class="img-fluid" src="images/flags.png" alt="">
+        <img class="img-fluid" src="/images/flags.png" alt="">
     </div>
 </div>
 
@@ -92,7 +92,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
         <div class="row">
             <div class="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                 <h3 class="d-md-none d-sm-block">Приветствуем новых друзей в нашей языковой школе!</h3>
-                <img class="img-fluid" src="images/womans.jpg">
+                <img class="img-fluid" src="/images/womans.jpg">
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="src-1-text">
@@ -175,7 +175,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
         <div class=" teach-line-block row justify-content-end">
             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                 <div class="teach-6-img">
-                    <img  class="img-fluid" src="images/board 1.png" alt="">
+                    <img  class="img-fluid" src="/images/board 1.png" alt="">
                 </div>
             </div>
 
@@ -205,7 +205,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                         </div>
                     </div>
                 </div>
-                <img class="teach-block-book d-lg-block d-none" src="../images/books-index.png" alt="">
+                <img class="teach-block-book d-lg-block d-none" src="/images/books-index.png" alt="">
             </div>
         </div>
     </div>
@@ -228,7 +228,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-                        <img src="images/cocktail/1.png" alt="">
+                        <img src="/images/cocktail/1.png" alt="">
                         <span>Английский</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -248,7 +248,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
                 <div class="dropdown">
                     <button class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-                        <img src="images/cocktail/2.png" alt="">
+                        <img src="/images/cocktail/2.png" alt="">
                         <span>Немецкий</span>
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -267,7 +267,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
             <div class="dropdown">
                 <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-                    <img src="images/cocktail/3.png" alt="">
+                    <img src="/images/cocktail/3.png" alt="">
                     <span>Шведский</span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -286,7 +286,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
     <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
         <div class="dropdown">
             <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-                <img src="images/cocktail/4.png" alt="">
+                <img src="/images/cocktail/4.png" alt="">
                 <span>Арабский</span>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -304,7 +304,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/5.png" alt="">
+            <img src="/images/cocktail/5.png" alt="">
             <span>Датский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -322,7 +322,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/6.png" alt="">
+            <img src="/images/cocktail/6.png" alt="">
             <span>Французский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -340,7 +340,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/7.png" alt="">
+            <img src="/images/cocktail/7.png" alt="">
             <span>Чешский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -358,7 +358,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/8.png" alt="">
+            <img src="/images/cocktail/8.png" alt="">
             <span>Китайский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -376,7 +376,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/9.png" alt="">
+            <img src="/images/cocktail/9.png" alt="">
             <span>Испанский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -394,7 +394,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/10.png" alt="">
+            <img src="/images/cocktail/10.png" alt="">
             <span>Финский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -412,7 +412,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/11.png" alt="">
+            <img src="/images/cocktail/11.png" alt="">
             <span>Русский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -430,7 +430,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/12.png" alt="">
+            <img src="/images/cocktail/12.png" alt="">
             <span>Корейский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -448,7 +448,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/13.png" alt="">
+            <img src="/images/cocktail/13.png" alt="">
             <span>Итальянский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -466,7 +466,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/14.png" alt="">
+            <img src="/images/cocktail/14.png" alt="">
             <span>Португальский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -484,7 +484,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/15.png" alt="">
+            <img src="/images/cocktail/15.png" alt="">
             <span>Турецкий</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -502,7 +502,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/16.png" alt="">
+            <img src="/images/cocktail/16.png" alt="">
             <span>Японский</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -520,7 +520,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
 <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6">
     <div class="dropdown">
         <button type="button" class="btn dropdown-toggle" data-flip="false" data-toggle="dropdown">
-            <img src="images/cocktail/17.png" alt="">
+            <img src="/images/cocktail/17.png" alt="">
             <span>Греческий</span>
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -580,7 +580,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                 <?php   } ?>
                 
                 <div class="card" id="2">
-                    <img src="images/mask.png" alt="">
+                    <img src="/images/mask.png" alt="">
                     <p class="name-author">Иванова Марина</p>
                     <p class="country-city-author">Россия, Пермь</p>
                     <p>Свое первое знакомство с испанским
@@ -594,7 +594,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                     </p>
                 </div>
                 <div class="card" id="3">
-                    <img src="images/mask.png" alt="">
+                    <img src="/images/mask.png" alt="">
                     <p class="name-author">Иванова Марина</p>
                     <p class="country-city-author">Россия, Пермь</p>
                     <p>Свое первое знакомство с испанским
@@ -608,7 +608,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                     </p>
                 </div>
                 <div class="card" id="4">
-                    <img src="images/mask.png" alt="">
+                    <img src="/images/mask.png" alt="">
                     <p class="name-author">Иванова Марина</p>
                     <p class="country-city-author">Россия, Пермь</p>
                     <p>Свое первое знакомство с испанским
@@ -622,7 +622,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                     </p>
                 </div>
                 <div class="card" id="5">
-                    <img src="images/mask.png" alt="">
+                    <img src="/images/mask.png" alt="">
                     <p class="name-author">Иванова Марина</p>
                     <p class="country-city-author">Россия, Пермь</p>
                     <p>Свое первое знакомство с испанским
@@ -647,7 +647,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                 <div class="item">
                     <div class="card-carousel d-flex align-items-end">
                         <div class="card">
-                            <img src="images/mask.png" alt="">
+                            <img src="/images/mask.png" alt="">
                             <p class="name-author">Иванова Марина</p>
                             <p class="country-city-author">Россия, Пермь</p>
                             <p>Свое первое знакомство с испанским
@@ -664,7 +664,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                 </div>
                 <div class="item"><div class="card-carousel d-flex align-items-end">
                     <div class="card">
-                        <img src="images/mask.png" alt="">
+                        <img src="/images/mask.png" alt="">
                         <p class="name-author">Иванова Марина</p>
                         <p class="country-city-author">Россия, Пермь</p>
                         <p>Свое первое знакомство с испанским
@@ -680,7 +680,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
                 </div></div>
                 <div class="item"><div class="card-carousel d-flex align-items-end">
                     <div class="card">
-                        <img src="images/mask.png" alt="">
+                        <img src="/images/mask.png" alt="">
                         <p class="name-author">Иванова Марина</p>
                         <p class="country-city-author">Россия, Пермь</p>
                         <p>Свое первое знакомство с испанским

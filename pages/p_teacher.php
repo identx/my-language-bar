@@ -39,13 +39,13 @@ echo '
                 <a href="teachers">← Назад</a>
             </div>
             <div class="col-2">
-                <img src="../images/tovars/b-'.$tovs["imgs"][0]["name"].'" alt="" style="width: 100%;">
-                <img src="../images/youtube 1.png" alt="" width="64" class="video-btn" data-toggle="modal"
+                <img src="/images/tovars/b-'.$tovs["imgs"][0]["name"].'" alt="" style="width: 100%;">
+                <img src="/images/youtube 1.png" alt="" width="64" class="video-btn" data-toggle="modal"
                 data-src="'.$tovs["alias"].'" data-target="#teachers-modal">
             </div>
             <div class="col-4">
                 <div class="teachers-text-block">
-                    <h1> '.$tovs["name"] .'<img class="teachers-flag" src="../images/icon-flag/1.png" alt=""></h1>
+                    <h1> '.$tovs["name"] .'<img class="teachers-flag" src="/images/icon-flag/1.png" alt=""></h1>
                     <p>Преподает: '.returnLanguage($tovs["attrs"]["yazyki-prepadaet"]["val"], true).'</p>
                     <p>Говорит на: '.returnLanguage($tovs["attrs"]["yazyki-govorit"]["val"], false).'</p>  
 					<p>'.$tovs["country"].', '.$tovs['attrs']['gorod']["val"].' (GMT +'.$tovs["count"].' часа)</p>

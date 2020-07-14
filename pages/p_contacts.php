@@ -17,23 +17,23 @@ $_SERVER['page']['js'] = '';
                 <h3 class="text-center">Есть вопросы? Будем рады помочь</h3>
                 <p class="mb-4">Наши бармены-администраторы всегда готовы угостить вас коктейлем и помочь в разрешении любых вопросов</p>
                 <div class="d-flex justify-content-center mb-5">
-                    <img src="../images/contact-mask.png" alt="">
+                    <img src="/images/contact-mask.png" alt="">
                 </div>
                 <h3 style="font-weight: 500; font-size: 20px; text-align: center; margin-bottom: 10px;">Наши контакты</h3>
 
                 <div class="d-flex justify-content-center" style="margin-bottom: 135px;">
                     <div class="pl-4 pr-4">
                         <ul>
-                            <li class="m-3"><img class="pr-3" src="../images/icons/tel.png" alt=""><a href="tel:+79999999999">+7 999 999-99-99</a></li>
-                            <li class="m-3"><img class="pr-3" src="../images/icons/mail.png" alt=""><a href="mailto:mylanguagebar@gmail.com">mylanguagebar@gmail.com</a></li>
-                            <li class="m-3"><img class="pr-3" src="../images/icons/skype.png" alt=""><a href="skype:languagebar?call">Language Bar</a></li>
+                            <li class="m-3"><img class="pr-3" src="/images/icons/tel.png" alt=""><a href="tel:+79999999999">+7 999 999-99-99</a></li>
+                            <li class="m-3"><img class="pr-3" src="/images/icons/mail.png" alt=""><a href="mailto:mylanguagebar@gmail.com">mylanguagebar@gmail.com</a></li>
+                            <li class="m-3"><img class="pr-3" src="/images/icons/skype.png" alt=""><a href="skype:languagebar?call">Language Bar</a></li>
                         </ul>
                     </div>
                     <div class="pl-4 pr-4">
                         <ul>
-                            <li class="m-3"><img class="pr-3" src="../images/icons/instagram.png" alt=""><a href="" rel="nofollow" target="_blank">instagram_profile</a></li>
-                            <li class="m-3"><img class="pr-3" src="../images/icons/facebook.png" alt=""><a href="" rel="nofollow" target="_blank">facebook_profile</a></li>
-                            <li class="m-3"><img class="pr-3" src="../images/icons/youtube.png" alt=""><a href="" rel="nofollow" target="_blank">youtube-channel</a></li>
+                            <li class="m-3"><img class="pr-3" src="/images/icons/instagram.png" alt=""><a href="" rel="nofollow" target="_blank">instagram_profile</a></li>
+                            <li class="m-3"><img class="pr-3" src="/images/icons/facebook.png" alt=""><a href="" rel="nofollow" target="_blank">facebook_profile</a></li>
+                            <li class="m-3"><img class="pr-3" src="/images/icons/youtube.png" alt=""><a href="" rel="nofollow" target="_blank">youtube-channel</a></li>
                         </ul>
                     </div>
                 </div>
