@@ -134,3 +134,5 @@ input[type=text]{box-sizing:border-box;padding:5px}
 .cke_textarea_inline:focus{max-height:300px;}
 .ui-spinner-input{margin:1px 0}
 /*brands*/
+.table_payment {border: 1px solid #ebecee; border-collapse: collapse;}
+.table_payment th, .table_payment tr, .table_payment td { border: 1px solid #ebecee; padding: 10px; }

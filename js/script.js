@@ -6,7 +6,8 @@ $(function(){
 		let data = {};
 		data.course = $('.payment-courses-select option:selected').text();
 		data.language = $('.payment-languages-select option:selected').text();
-		data.user = $('.alert strong').text()
+		data.user = $('.alert strong').text();
+		data.package = $('.payment-package-select option:selected').text().split(' -')[0];
 		data.amount = $('.hidden-amount').val();
 		console.log(data);
 		$.post('../handlers/add-transaction.php', data, function(r){
@@ -121,7 +122,7 @@ function checkCodeValue(){
 }
 
 function checkPayBtn() {
-	if($('.alert').hasClass('alert-success') && $('.payment-courses-select').val() != 0) {
+	if($('.alert').hasClass('alert-success') && $('.payment-courses-select option:selected').val() != 0) {
 		$('#payment-form-btn').removeAttr('disabled');
 		$('#payment-form-btn').removeClass('grey-btn');
 		$('#payment-form-btn').addClass('yellow-btn');
