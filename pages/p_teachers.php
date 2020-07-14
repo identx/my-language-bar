@@ -7,11 +7,11 @@ $_SERVER['page']['js'] = '';
 db_connect();
 
 $catalog = new Catalog('mcat_');
-
-$catalog->setItemsSort(array( 'price_d'=>1, 'count'=>0, 'id'=>0));
-
 $cats=$catalog->getItems();
 
+//echo "<pre>";
+//var_dump($cats);
+//echo "</pre>";
 db_disconnect();
 
 ?>
@@ -60,10 +60,10 @@ db_disconnect();
 
         <div class="row justify-content-center">
             <?php
-            foreach($cats as $value) {
-                $tovs=$catalog->getItem($value['id']);
-                echo CardTeacher($tovs);
-            }
+                foreach($cats as $value) {
+                    $tovs=$catalog->getItem($value['id']);
+                    echo CardTeacher($tovs);
+                }
             ?>
         </div>
     </div>

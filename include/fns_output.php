@@ -391,9 +391,20 @@ function returnLanguage($langs, $isLink) {
 
 
 function CardTeacher($tovs) {
-    //echo "<pre>";
-    //var_dump($tovs);
-    //echo "</pre>";
+
+    $catalog = new Catalog('mcat_');
+    $brands = $catalog->getBrands();
+    foreach ($brands as $brand) {
+        if ($brand["id"] === $tovs["brand"])
+            $tovs["country"] = $brand;
+    }
+
+//    echo "<pre>";
+//    var_dump($tovs["country"]);
+//    echo "</pre>";
+
+
+
     $q = '<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 p-1">
             <div class="teachers-item d-flex">
                 <div class="teachers-img">
@@ -402,10 +413,10 @@ function CardTeacher($tovs) {
                          data-src="'.str_replace('https://www.youtube.com/watch?v=','https://www.youtube.com/embed/',$tovs["alias"]).'?autoplay=1" data-target="#teachers-modal">
                 </div>
                 <div class="teachers-text-block">
-                    <span class="teacher-name"><a href="teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/icon-flag/1.png" alt=""></span>
+                    <span class="teacher-name"><a href="teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/brands/'.$tovs["country"]["img"].'" alt=""></span>
                     <p>Преподает: '.returnLanguage($tovs["attrs"]["yazyki-prepadaet"]["val"], true).'</p>
                     <p>Говорит на: '.returnLanguage($tovs["attrs"]["yazyki-govorit"]["val"], false).'</p>
-                    <p class="teachers-decs d-none d-sm-block">'. stristr($tovs["attrs"]["opisanie"]["val"], '*', true)  .' <a href="teacher?id='.$tovs["id"].'" class="more-teacher">Подробнее →</a></p>
+                    <p class="teachers-decs d-none d-sm-block">'.  stristr($tovs["attrs"]["opisanie"]["val"], '*', true) .' <a href="teacher?id='.$tovs["id"].'" class="more-teacher">Подробнее →</a></p>
                 </div>
             </div>
         </div>';

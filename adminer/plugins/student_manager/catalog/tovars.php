@@ -9,8 +9,7 @@ function tvrs_snippet($one){
 	$img=($one['img']!='')?$conf['path_to_image'].current(array_keys($conf['size'])).'-'.$one['img']:'images/no-foto.png';
 	return '<div class="tvrs_snippet '.($one['opts']&1==1?'alpha':'').'">
 			<a href="tools.php?p=tovars&id='.$one['id'].'" >
-				<span class="sn_name" title="'.$one['name'].'">'.$one['name'].'</span>			
-				<span class="sn_name">Код: '. substr(md5($one['id']), 0, 7) .'</span>	
+				<span class="sn_name" title="'.$one['name'].'">'.$one['name'].'</span>				
 			</a>
 			</div>';
 }
@@ -149,6 +148,7 @@ if(!isset($_GET['id'])){
 	$TAG['content'].='<div class="def_val element_wrapper short cb">Оплачено уроков<input type="text" name="count" class="spinner def_val" value="'.htmlspecialchars($tovar['count']).'"/></div>';
 	$TAG['content'].='<div class="def_val element_wrapper short">Скайп<input type="text" class="def_val" name="article" value="'.htmlspecialchars($tovar['article']).'"/></div>';
 //	$TAG['content'].='<div class="def_val element_wrapper shortest">Скрыть<br /><select class="'.(($tovar['opts'] & 1==1)?' attention':'').'" id="sel_hide" name="hide"><option value="0" >Нет</option><option '.(($tovar['opts'] & 1==1)?'selected="selected"':'').' value="1">Да</option></select></div>';
+
 	$TAG['content'].='<div class="element_wrapper short cb" id="brander">Преподаватель<br /><select class="def_val" name="brand"><option data-img="images/noimage.png"	value="0">не выбрано</option>';
 	$sql="SELECT * FROM `mcat_tvrs` ORDER BY `name`";
 	$firms=db_getItems($sql);
@@ -156,7 +156,7 @@ if(!isset($_GET['id'])){
 	foreach($firms as $one){
 		$TAG['content'].='<option value="'.$one['id'].'">'.$one['name'].'</option>';
 	}
-	$TAG['content'].='</select></div><div class="element_wrapper shortest"><img id="brandimg" src="images/noimage.png" /></div>
+	$TAG['content'].='</select></div><div class="def_val element_wrapper short">Код<span class="sn_name">'. substr(md5($tovar['id']), 0, 7) .'</span></div><div class="element_wrapper shortest"><img id="brandimg" src="images/noimage.png" /></div>
 	</div>';
 	/*////ИЗОБРАЖЕНИЯ////*/
 	$TAG['content'].='

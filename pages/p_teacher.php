@@ -11,9 +11,9 @@ $tovs=$catalog->getItem($_GET["id"]);;
 
 $brands = $catalog->getBrands();
 foreach ($brands as $brand) {
-
     if ($brand["id"] === $tovs["brand"])
-        $tovs["country"] = $brand["name"];
+        $tovs["country"] = $brand;
+    var_dump();
 }
 
 
@@ -48,7 +48,7 @@ echo '
                     <h1> '.$tovs["name"] .'<img class="teachers-flag" src="/images/icon-flag/1.png" alt=""></h1>
                     <p>Преподает: '.returnLanguage($tovs["attrs"]["yazyki-prepadaet"]["val"], true).'</p>
                     <p>Говорит на: '.returnLanguage($tovs["attrs"]["yazyki-govorit"]["val"], false).'</p>  
-					<p>'.$tovs["country"].', '.$tovs['attrs']['gorod']["val"].' (GMT +'.$tovs["count"].' часа)</p>
+					<p>'.$tovs["country"]["name"].', '.$tovs['attrs']['gorod']["val"].' (GMT +'.$tovs["count"].' часа)</p>
                     <p>17:00 (разница 5 часов)</p>
                 </div>
             </div>

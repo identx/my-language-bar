@@ -260,6 +260,26 @@ if(!isset($_GET['id'])){
 
 		}
 	}	
-	$TAG['content'].='</div></form><br /><br /><br /><br /><br />';
+	$TAG['content'].='<br>
+		<div style="margin-left: 100px;">
+			en - Английский<br>
+			de - Немецкий<br>
+			sv - Шведский<br>
+			ar - Арабский<br>
+			da - Датский<br>
+			fr - Французский<br>
+			cs - Чешский<br>
+			zh - Китайский<br>
+			es - Испанский<br>
+			fi - Финский<br>
+			ru - Русский<br>
+			ko - Корейский<br>
+			it - Итальянский<br>
+			pt - Португальский<br>
+			tr - Турецкий<br>
+			ja - Японский<br>
+			el - Греческий<br>
+		</div>
+</div></form><br/><br /><br /><br /><br />';
 }
 ?>
