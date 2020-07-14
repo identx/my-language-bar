@@ -1,6 +1,21 @@
 $(function(){
 
 
+
+	$('#payment-form-btn').on('click', function(e){
+		e.preventDefault();
+
+		$.post('../handlers/add-transaction.php', data, function(r){
+			select.html(r);
+
+			
+		},"json");
+
+	})
+
+
+
+
 	$('.payment-courses-select').on('change', function(){
 		let select = $('.payment-package-select');
 		select.html('<option disabled="disabled">Пакет</option>');
@@ -20,16 +35,16 @@ $(function(){
 	})
 
 
+
 	$(document).on('click', '#check-code', function(e){
 		e.preventDefault();
 		data = {};
 		data.code = $('#payment-form-code').val();
 		let info = $('.check-info');
 		$.post('../handlers/check-code.php', data, function(r){
-			console.log(r);
 			if(r.status==true) {
 				info.html(r['info']);
-			checkPayBtn();
+				checkPayBtn();
 			} else {
 				info.html(r['info']);
 			}

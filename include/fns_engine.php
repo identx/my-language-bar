@@ -1,7 +1,7 @@
 <?php
 
 function engine_get_content($opts){
-	switch($opts[1]){
+	switch($opts[2]){
 		default:
 		$a=engine_page('404');
 		break;

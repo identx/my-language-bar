@@ -15,7 +15,7 @@ $packages = $catalog->getItems([['cat'=>$id]]);
 
 
 foreach ($packages as $package) {
-	$res .= '<option value="'.$package['price_d'].'">'.$package['name'].' '.num2str($package['name'], ['урок','урока','уроков']).' - '.number_format($package['price_d'], 0, '', ' ').' ₽</option>';
+	$res .= '<option>'.$package['name'].' '.num2str($package['name'], ['урок','урока','уроков']).' - '.number_format($package['price_d'], 0, '', ' ').' ₽</option>';
 }
 
 

@@ -29,12 +29,6 @@ function output_header()
     <link rel="stylesheet" href="../css/fonts.css?v='.$v.'">
     <link rel="stylesheet" href="../css/style.css?v='.$v.'">
     <link rel="stylesheet" href="../css/media.css?v='.$v.'">
-
-   
-
-    <!----Revolution slider---->
-
-    <!-- Favicon Link -->
    
 </head>
 <body>
@@ -155,7 +149,6 @@ function output_header()
             </div>
        
 
-<!------ Header Start ------>
 <header>
     <nav class="navbar navbar-expand-lg navbar-light container">
         <a class="navbar-brand" href="/"><img src="../images/header-logo.svg" alt=""></a>
@@ -167,30 +160,29 @@ function output_header()
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/teachers">Преподаватели</a>
+                    <a class="nav-link" href="teachers">Преподаватели</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/courses">Курсы и стоимость</a>
+                    <a class="nav-link" href="courses">Курсы и стоимость</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/payment">Оплата</a></li>
+                    <a class="nav-link" href="payment">Оплата</a></li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contacts">Контакты</a>
+                    <a class="nav-link" href="contacts">Контакты</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/vacancies">Вакансии</a>
+                    <a class="nav-link" href="vacancies">Вакансии</a>
                 </li>
             </ul>
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="skype:languagebar?call"><img src="images/icons/skype.png" alt="">Language Bar</a>
+                    <a class="nav-link" href="skype:languagebar?call"><img src="../images/icons/skype.png" alt="">Language Bar</a>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
-<!------ Slider Start ------>
 <section class="content">';
     return $r;
 }
