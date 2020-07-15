@@ -12,52 +12,63 @@ $tvrs=$catalog->getItems();
 
 $categories = $catalog->getCats();
 
+function compare_lastname($a, $b)
+{
+    return strnatcmp($a['name'], $b['name']);
+}
+
+function drawCurses($curs, $category) {
+
+    
+    usort($curs, 'compare_lastname');
 
 
-$idCurses = 0;
-
-function drawCurses($tovs, $idCurses, $category) {
-
+    // echo "<pre>";
+    // var_dump($curs);
+    // echo "</pre>";
     $q = '<div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 course-wrapper">
                 <div class="courses-item" id="general-course">
-                    <p class="text-number">'.$idCurses.'</p>
-                    <img src="/images/pack/b-'.$tovs[0]["imgs"]["name"].'" class="position-absolute"
+                    <p class="text-number">'.$category["id"].'</p>
+                    <img src="/images/pack/b-'.$curs[0]["imgs"][0]["name"].'" class="position-absolute"
                     style="margin-left: 40px; margin-top: 10px;" alt="">
                     <div class="courses-right-side">
                         <h4>'.$category["name"].'</h4>
                         <p class="courses-right-side-t">'.$category["scomment"].'</p>
-                        <div class="courses-a d-flex">
-                            <div class="courses-a-i">
-                                <p>2 урока</p>
-                                <p>1 600 <span class="symbol">₽</span></p>
-                                <p>(800 <span class="symbol">₽</span>/урок)</p>
-                            </div>
-                            <div class="courses-a-i">
-                                <p>4 урока</p>
-                                <p>3 200 <span class="symbol">₽</span></p>
-                                <p>(800 <span class="symbol">₽</span>/урок)</p>
-                            </div>
-                            <div class="courses-a-i">
-                                <p>8 уроков</p>
-                                <p><span class="delete-price"><span class="delete-line"></span>6 400 <span class="symbol">₽</span></span><span>6 160 <span class="symbol">₽</span></span></p>
-                                <p>(770 <span class="symbol">₽</span>/урок)</p>
-                                <div class="courses-a-i-sale">-3,7%</div>
-                            </div>
-                            <div class="courses-a-i">
-                                <p>16 уроков</p>
-                                <p><span class="delete-price"><span class="delete-line"></span><span class="delete-line"></span>12 840 <span class="symbol">₽</span></span><span>11 840 <span class="symbol">₽</span></span></p>
-                                <p>(770 <span class="symbol">₽</span>/урок)</p>
-                                <div class="courses-a-i-sale">-7,5%</div>
-                            </div>
-                            <button data-toggle="modal" data-target="#modal-applic-form">Записаться</button>
-                        </div>
+                        <div class="courses-a d-flex">';
 
+                            for ($i = 0; $i <= 3; $i++) {
+                                if (is_null($curs[$i])) {
+                                   $q.='<div class="courses-a-i" style="display: none;">';
+                                   $q.='</div>';
+                                } else {
+                                    $q.='<div class="courses-a-i">';
+                                    if ($curs[$i]["name"] == "1") {
+                                        $q.='<p>'.$curs[$i]["name"].' урок</p>';
+                                    } else if ($curs[$i]["name"] >= "5") {
+                                        $q.='<p>'.$curs[$i]["name"].' уроков</p>';
+                                    } else {
+                                        $q.='<p>'.$curs[$i]["name"].' урока</p>';
+                                    }
+                                    $priceSale = round(($curs[$i]["price"]-$curs[$i]["price_d"])*1000/$curs[$i]["price"], 0)/10;
+                                    $priceSaleYrok = round(($curs[$i]["price"]/$curs[$i]["name"])-$priceSale*($curs[$i]["price"]/$curs[$i]["name"])/100);
+                                    if ($curs[$i]["price"] === $curs[$i]["price_d"]) {
+                                        $q.='<p>'.$curs[$i]["price"].'<span class="symbol">₽</span></p>';
+                                    } else {
+                                        $q.='<p><span class="delete-price"><span class="delete-line"></span>'.$curs[$i]["price"].'<span class="symbol">₽</span></span><span>'.$curs[$i]["price_d"].'<span class="symbol">₽</span></span></p>
+                                            <div class="courses-a-i-sale">-'.$priceSale.'%</div>';
+                                    }
+                                    
+                                    
+                                    $q.='<p>('.$priceSaleYrok.' <span class="symbol">₽</span>/урок)</p>';
+                                    $q.='</div>';
+                                }
+                            }
+
+                        $q.='<button data-toggle="modal" data-target="#modal-applic-form">Записаться</button>
+                        </div>
                     </div>
                 </div>
             </div>';
-//    echo "<pre>";
-//    var_dump($tovs);
-//    echo "</pre>";
     return $q;
 }
 
@@ -75,19 +86,18 @@ db_disconnect();
         <p class="mb-5"><img class="course-icon" src="/images/icons/coin.svg" alt="">Оплата принимается от 2-х уроков</p>
         <div class="row justify-content-center courses-block">
             <?php
-                $idCurses = 0;
                 foreach($categories as $category) {
 
                     $curs;
                     $idCursesTvr = 1;
                     foreach($tvrs as $tvr) {
                         if ($tvr["cat"] == $category["id"]) {
-                            $curs[$idCurses] = $catalog->getItem($tvr['id']);
+                            $curs[$idCursesTvr] = $catalog->getItem($tvr['id']);
                             $idCursesTvr++;
                         }
+
                     }
-                    echo drawCurses($curs, $idCurses, $category);
-                    $idCurses++;
+                    echo drawCurses($curs, $category);
                 }
 
             ?>
