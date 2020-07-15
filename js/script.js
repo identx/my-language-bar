@@ -1,6 +1,12 @@
 $(function(){
 
 
+$('a[data-value="all-lang"]').on('click', function(e){
+	e.preventDefault();
+	$('.teacher-wrapper').show();
+})
+ filterLanguage($('.language-link-filter'));
+
 	$('#payment-form-btn').on('click', function(e){
 		e.preventDefault();
 		let data = {};
@@ -16,9 +22,6 @@ $(function(){
 		},"json");
 
 	})
-
-
-
 
 	$(document).on('change', '.payment-package-select', function(){
 		getAmount();
@@ -141,3 +144,12 @@ function getAmount() {
 
 
 
+function filterLanguage(selector) {
+	$(selector).on('click', function(e){
+		// alert($(this).data('value'));
+		e.preventDefault();
+		$('.teacher-wrapper').hide();
+		let block = '.'+$(this).data('value')+'-lang';
+		$(block).show();
+	})
+}
