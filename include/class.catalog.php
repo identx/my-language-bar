@@ -371,12 +371,13 @@
 	}
 	
 	public function getItems($filter=array()){
+
 		if(count($filter)) $this->setFilter($filter);
 		if(count($this->items_filter_attrs)==0){
 			$q="SELECT `".$this->pr."tvrs` .*, (SELECT `name` FROM `".$this->pr."images` WHERE `id_tvr`=`".$this->pr."tvrs`.`id` ORDER BY `index` ASC LIMIT 1) as 'img'  FROM `".$this->pr."tvrs` WHERE  ".$this->__showHidden().$this->items_filter_params." ".$this->items_sort.$this->items_limit_string;
 			$res=db_query($q);
 			$this->setLog($q);
-			
+
 			if($this->items_limit_string!=''){
 				$q="SELECT COUNT(*) `c` FROM `".$this->pr."tvrs` WHERE ".$this->__showHidden().$this->items_filter_params;
 				$cnt=db_query($q);
@@ -604,7 +605,7 @@ function __construct($pr='mcat_') {
 
 
 
-	if(count($res))
+    if(count($res))
 		foreach($res as $one)
 			$this->nodes[$one['id']]=$one;
 		if($this->nodes)
@@ -649,6 +650,7 @@ function __construct($pr='mcat_') {
 		// заменям все ненужное нам на "-"
 		$str = preg_replace('~[^-a-z0-9_\s]+~u', '', $str);
 		$str = trim($str, "-");
+
 		return $str;
 	}
 }

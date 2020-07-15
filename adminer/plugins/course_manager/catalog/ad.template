@@ -34,7 +34,12 @@
 Название:<br />
 <input type="text" name="name" value="<!--*NAME*-->" class="txt" /><br />
 Описание:<br />
-<textarea class="txt h1" name="scomment"><!--*SCOMMENT*--></textarea><br />
+<textarea class="txt h1" name="scomment"><!--*SCOMMENT*--></textarea>
+Описание:<br />
+<div class="img" id="uploadForm">
+		<a class="upload_button btn ui-button ui-state-default" href="#">+ Добавить изображение</a>
+		<input id="uploader" type="file" multiple="true" style="display: none;" accept="image/jpeg,image/png,image/gif" />
+	</div>
 <div class="ta_r"><a href="?p=cats" class="btn ui-button ui-widget ui-state-default">Назад<a/>
 <input type="submit" value="Сохранить" class="btn ui-button ui-widget ui-state-default" /></div>
 </form><br />

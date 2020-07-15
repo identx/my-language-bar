@@ -13,7 +13,6 @@ $brands = $catalog->getBrands();
 foreach ($brands as $brand) {
     if ($brand["id"] === $tovs["brand"])
         $tovs["country"] = $brand;
-    var_dump();
 }
 
 

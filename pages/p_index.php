@@ -50,7 +50,7 @@ function GetDropdownTeacher($cat, $t, $lang) {
          <div class="teacher-img-block">
          <img src="/images/tovars/s-'.$img_teacher.'" alt="">
          </div>
-         <a href="/teacher">'.$teacher['name'].'</a>
+         <a href="teacher?id='.$teacher["id"].'">'.$teacher['name'].'</a>
          <p>'.$cntry.', '.$add_attrs_teacher['attrs']['gorod']['val'].'</p>
          </div>';
 
