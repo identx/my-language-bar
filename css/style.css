@@ -3,6 +3,15 @@ body {
     background-color: #fff;
     -webkit-font-smoothing: antialiased;
     font-family: 'Lato', sans-serif;
+    top: 0 !important;
+}
+
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+.goog-te-gadget-simple {
+    border-radius: 10px;
 }
 
 * {
