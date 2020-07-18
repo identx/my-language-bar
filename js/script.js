@@ -1,12 +1,19 @@
 $(function(){
 
 
+$('a[data-value="all-lang"]').on('click', function(e){
+	e.preventDefault();
+	$('.teacher-wrapper').show();
+})
+ filterLanguage($('.language-link-filter'));
+
 	$('#payment-form-btn').on('click', function(e){
 		e.preventDefault();
 		let data = {};
 		data.course = $('.payment-courses-select option:selected').text();
 		data.language = $('.payment-languages-select option:selected').text();
-		data.user = $('.alert strong').text()
+		data.user = $('.alert strong').text();
+		data.package = $('.payment-package-select option:selected').text().split(' -')[0];
 		data.amount = $('.hidden-amount').val();
 		console.log(data);
 		$.post('../handlers/add-transaction.php', data, function(r){
@@ -15,9 +22,6 @@ $(function(){
 		},"json");
 
 	})
-
-
-
 
 	$(document).on('change', '.payment-package-select', function(){
 		getAmount();
@@ -121,7 +125,7 @@ function checkCodeValue(){
 }
 
 function checkPayBtn() {
-	if($('.alert').hasClass('alert-success') && $('.payment-courses-select').val() != 0) {
+	if($('.alert').hasClass('alert-success') && $('.payment-courses-select option:selected').val() != 0) {
 		$('#payment-form-btn').removeAttr('disabled');
 		$('#payment-form-btn').removeClass('grey-btn');
 		$('#payment-form-btn').addClass('yellow-btn');
@@ -140,3 +144,12 @@ function getAmount() {
 
 
 
+function filterLanguage(selector) {
+	$(selector).on('click', function(e){
+		// alert($(this).data('value'));
+		e.preventDefault();
+		$('.teacher-wrapper').hide();
+		let block = '.'+$(this).data('value')+'-lang';
+		$(block).show();
+	})
+}

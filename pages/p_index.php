@@ -14,16 +14,16 @@ $res = db_query($sql);
 
 function dropdownCoursesBlock() {
     $res = ' <div class="col-5 ml-3">
-    <a href="/courses#general-course">Общий курс<br></a>
-    <a href="/courses#business-course">Бизнес-курс<br></a>
-    <a href="/courses#course-for-kinds">Для детей<br></a>
-    <a href="/courses#traveling-course">Для путешествий<br></a>
+    <a href="courses#general-course">Общий курс<br></a>
+    <a href="courses#business-course">Бизнес-курс<br></a>
+    <a href="courses#course-for-kinds">Для детей<br></a>
+    <a href="courses#traveling-course">Для путешествий<br></a>
     </div>
     <div class="col-6 p-0">
-    <a href="/courses#intensive-course">Интенсивный курс<br></a>
-    <a href="/courses#preparation-for-exams">Подготовка к экзаменам<br></a>
-    <a href="/courses#course-with-native-speakers">С носителями языка<br></a>
-    <a href="/courses#spoken-course">Разговорный язык<br></a>
+    <a href="courses#intensive-course">Интенсивный курс<br></a>
+    <a href="courses#preparation-for-exams">Подготовка к экзаменам<br></a>
+    <a href="courses#course-with-native-speakers">С носителями языка<br></a>
+    <a href="courses#spoken-course">Разговорный язык<br></a>
     </div>';
     return $res;
 }

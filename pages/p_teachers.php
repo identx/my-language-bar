@@ -27,38 +27,38 @@ db_disconnect();
     <div class="container">
         <div class="d-flex justify-content-center" style="margin: 60px 0">
             <div class="main_teachers_sort">
-                <a href="#">Все языки</a><br>
-                <a href="">Английский</a><br>
-                <a href="">Датский</a><br>
+                <a href="#" data-value="all-lang">Все языки</a><br>
+                <a href="" class="language-link-filter" data-value="en">Английский</a><br>
+                <a href="" class="language-link-filter" data-value="da">Датский</a><br>
             </div>
             <div class="main_teachers_sort">
-                <a href="">Испанский</a><br>
-                <a href="">Итальянский</a><br>
-                <a href="">Греческий</a><br>
+                <a href="" class="language-link-filter" data-value="es">Испанский</a><br>
+                <a href="" class="language-link-filter" data-value="it">Итальянский</a><br>
+                <a href="" class="language-link-filter" data-value="el">Греческий</a><br>
             </div>
             <div class="main_teachers_sort">
-                <a href="">Немецкий</a><br>
-                <a href="">Французский</a><br>
-                <a href="">Финский</a><br>
+                <a href="" class="language-link-filter" data-value="de">Немецкий</a><br>
+                <a href="" class="language-link-filter" data-value="fr">Французский</a><br>
+                <a href="" class="language-link-filter" data-value="fi">Финский</a><br>
             </div>
             <div class="main_teachers_sort">
-                <a href="">Русский</a><br>
-                <a href="">Португальский</a><br>
-                <a href="">Шведский</a><br>
+                <a href="" class="language-link-filter" data-value="ru">Русский</a><br>
+                <a href="" class="language-link-filter" data-value="pt">Португальский</a><br>
+                <a href="" class="language-link-filter" data-value="sv">Шведский</a><br>
             </div>
             <div class="main_teachers_sort">
-                <a href="">Чешский</a><br>
-                <a href="">Турецкий</a><br>
-                <a href="">Арабский</a><br>
+                <a href="" class="language-link-filter" data-value="cs">Чешский</a><br>
+                <a href="" class="language-link-filter" data-value="tr">Турецкий</a><br>
+                <a href="" class="language-link-filter" data-value="ar">Арабский</a><br>
             </div>
             <div class="main_teachers_sort">
-                <a href="">Китайский</a><br>
-                <a href="">Корейский</a><br>
-                <a href="">Японский</a><br>
+                <a href="" class="language-link-filter" data-value="zh">Китайский</a><br>
+                <a href="" class="language-link-filter" data-value="ko">Корейский</a><br>
+                <a href="" class="language-link-filter" data-value="ja">Японский</a><br>
             </div>
         </div>
 
-        <div class="row justify-content-center">
+        <div class="row">
             <?php
                 foreach($cats as $value) {
                     $tovs=$catalog->getItem($value['id']);

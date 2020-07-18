@@ -30,7 +30,7 @@ function output_header()
     <link rel="stylesheet" href="../css/fonts.css?v='.$v.'">
     <link rel="stylesheet" href="../css/style.css?v='.$v.'">
     <link rel="stylesheet" href="../css/media.css?v='.$v.'">
-    
+
     </head>
     <body>
     <div class="modal fade" id="modal-applic-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -149,7 +149,6 @@ function output_header()
     </div>
     </div>
 
-
     <header>
     <nav class="navbar navbar-expand-lg navbar-light container">
     <a class="navbar-brand" href="/"><img src="../images/header-logo.svg" alt=""></a>
@@ -160,6 +159,7 @@ function output_header()
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
+
         <li class="nav-item">
             <a class="nav-link" href="teachers">Преподаватели</a>
         </li>
@@ -183,6 +183,7 @@ function output_header()
         <li class="nav-item">
             <a class="nav-link" href="skype:languagebar?call"><img src="../images/icons/skype.png" alt="">Language Bar</a>
         </li>
+
     </ul>
     </div>
     </nav>
@@ -257,6 +258,7 @@ function output_footer()
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
+
     
     <script type="text/javascript">
 			function googleTranslateElementInit() {
@@ -264,6 +266,7 @@ function output_footer()
 			}
 	</script>
 	<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
 
     <script src="../js/script.js?v='.$v.'""></script>';
 
@@ -386,9 +389,8 @@ function returnLanguage($langs, $isLink) {
             </div>';
         } else {
             if($isLink === true) {
-
+               
                      $q .= '<a href="" class="language-link language-link-filter" data-value="'.$lang.'">'.$language.'</a>';
-
 
             } else {
                 $q .= '<span class="lang-info">'.$language.'</span>';
@@ -417,13 +419,16 @@ function CardTeacher($tovs) {
         $new_lang_arr[] = $lang_val.'-lang';
     }
 
-
     $q = '<div class="col-lg-6 col-md-10 col-sm-12 col-xs-12 p-1 teacher-wrapper '.implode(' ', $new_lang_arr).'">
     <div class="teachers-item d-flex">
     <div class="teachers-img">
     <a href="teacher?id='.$tovs["id"].'"><img src="../images/tovars/b-'.$tovs["imgs"][0]["name"].'" alt=""></a>
     <img src="../images/youtube 1.png" alt="" class="video-btn" data-toggle="modal"
+<<<<<<< HEAD
     data-src="'.str_replace('https://www.youtube.com/watch?v=','https://www.youtube.com/embed/',$tovs["alias"]).'" data-target="#teachers-modal">
+=======
+    data-src="'.str_replace('https://www.youtube.com/watch?v=','https://www.youtube.com/embed/',$tovs["alias"]).'?autoplay=1" data-target="#teachers-modal">
+>>>>>>> master
     </div>
     <div class="teachers-text-block">
     <span class="teacher-name"><a href="teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/brands/'.$tovs["country"]["img"].'" alt=""></span>

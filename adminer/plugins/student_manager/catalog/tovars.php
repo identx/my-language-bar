@@ -3,6 +3,13 @@ if(!isset($loc)) exit(0);
 
 global $conf;
 
+
+
+function get_transaction($name) {
+	$sql = "SELECT `id`, `sum`, `course`, `package`, `datatime`, `status` FROM `transactions` WHERE `user` = '$name' ";
+	return db_query($sql);
+}
+
 function tvrs_snippet($one){
 
 	global  $conf;
@@ -246,6 +253,29 @@ if(!isset($_GET['id'])){
 
 		}
 	}	
-	$TAG['content'].='</div></form><br /><br /><br /><br /><br />';
+	$TAG['content'].='</div>
+	<div>
+	<table class="table_payment">
+	<tr>
+	<th>id</th>
+	<th>Сумма</th>
+	<th>Курс</th>
+	<th>Пакет</th>
+	<th>Дата и время</th>
+	<th>Статус</th>
+	</tr>';
+
+	foreach (get_transaction($tovar['name']) as $v) {
+		$TAG['content'] .='<tr>';
+		foreach ($v as $n) {
+		$TAG['content'] .= '<td>'.$n.'</td>';		
+	}
+		$TAG['content'] .= '</tr>';
+	}
+
+
+	$TAG['content'] .='</table>
+	</div>
+	</form><br /><br /><br /><br /><br />';
 }
 ?>
