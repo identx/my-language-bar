@@ -17,7 +17,7 @@ function output_header()
     <title>' . $_SERVER['page']['title'] . 'My Language Bar - онлайн школа иностранных языков</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="' . $_SERVER['page']['keyws'] . ', Text Text Text Text Text" />
+    <meta name="keywords" content="' . $_SERVER['page']['keyws'] . '" />
     <meta name="description" content="' . $_SERVER['page']['descr'] . ',My Language Bar - онлайн школа иностранных языков." />	
     <meta name="author" content="identx">
     <meta name="MobileOptimized" content="320">
@@ -33,6 +33,8 @@ function output_header()
 
     </head>
     <body>
+    
+    
     <div class="modal fade" id="modal-applic-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
@@ -44,21 +46,21 @@ function output_header()
     </div>
     <div class="modal-body p-1">
     <h4 class="text-center">Заполните форму заявки</h4>
-    <p class="text-center">оставьте свои данные и мы свяжемся с вами в ближайшее время</p>
+    <p class="text-center">Оставьте свои данные и мы свяжемся с вами в ближайшее время</p>
     <form>
-    <div class="row justify-content-center main-form-block">
+    <div class="row justify-content-center main-form-block" id="a-form">
 
     <div class="col-lg-4 col-md-4 col-sm-10 col-xs-4 p-1">
-    <input type="text" placeholder="Имя">
+    <input type="text" placeholder="Имя" id="a-name">
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 p-1">
-    <input type="text" placeholder="Фамилия">
+    <input type="text" placeholder="Фамилия" id="a-fname">
     </div>
     <div class="col-lg-2 col-md-2 col-sm-2 col-xs-2 p-1">
-    <input type="text" placeholder="Возраст">
+    <input type="text" placeholder="Возраст" id="a-age">
     </div>
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 p-1">
-    <select>
+    <select id="a-language">
     <option disabled selected="selected">Язык для изучения</option>
     <option>Английский</option>
     <option>Немецкий</option>
@@ -80,7 +82,7 @@ function output_header()
     </select>
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 p-1">
-    <select>
+    <select id="a-level">
     <option disabled selected="selected">Уровень владения языком</option>
     <option>Beginner</option>
     <option>Elementary</option>
@@ -89,9 +91,9 @@ function output_header()
     <option>Upper-Intermediate</option>
     </select>
     </div>';
-    if($_SERVER['REQUEST_URI'] == '/courses') {
+    if($_SERVER['REQUEST_URI'] == '/ru/courses') {
         $r.='        <div class="col-lg-10 col-md-10 col-sm-10 p-1">
-        <select>
+        <select id="a-course">
         <option value="0">GENERAL COURSE (Общий курс)</option>
         <option value="1">SPOKEN COURSE (Курс разговорного языка)</option>
         <option value="2">PREPARATION FOR EXAMS (Курс подготовки к экзаменам)</option>
@@ -104,22 +106,25 @@ function output_header()
         </div>';
     }
     $r.='<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 p-1">
-    <textarea placeholder="Цели изучения языка"></textarea>
+    <textarea placeholder="Цели изучения языка" id="a-decs"></textarea>
     </div>
 
     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 p-1">
-    <input type="tel" placeholder="Телефон">
+    <input type="tel" placeholder="Телефон" id="a-phone">
     </div>
     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 p-1">
-    <input type="text" placeholder="Ник в Skype">
+    <input type="text" placeholder="Ник в Skype" id="a-skype">
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 p-1">
-    <input type="email" placeholder="E-mail">
+    <input type="email" placeholder="E-mail" id="a-email">
     </div>
     </div>
     <div class="d-flex justify-content-center">
-    <button>Отправить</button>
+    <button id="a-btn">Отправить</button>
     </div>  
+    <div class="error_form" style="text-align: center;">
+    
+    </div>
     <div class="d-flex justify-content-center">
     <p class="privacy-info">Оставляя свои контактные данные, вы соглашаетесь на обработку персональных данных в соответствии с <a href="/privacy">Политикой конфиденциальности</a></p>
     </div>
@@ -258,6 +263,7 @@ function output_footer()
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
+    <script src="../js/fns.js"></script>
 
     
     <script type="text/javascript">
@@ -265,14 +271,14 @@ function output_footer()
 			new google.translate.TranslateElement({pageLanguage: \'en\', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, \'google_translate_element\');
 			}
 	</script>
-	<script type="text/javascript" src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+	<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
     <script src="../js/script.js?v='.$v.'""></script>';
 
-    if ($_SERVER['REQUEST_URI'] == '/') {
+    if ($_SERVER['REQUEST_URI'] == '/ru') {
         $r .= '<script src="../js/carousel.js"></script>';
-    } else if ($_SERVER['REQUEST_URI'] == '/teachers') {
+    } else if ($_SERVER['REQUEST_URI'] == '/ru/teachers') {
         $r .= '<script src="../js/teachers-video.js"></script>';
     }
 
@@ -424,11 +430,8 @@ function CardTeacher($tovs) {
     <div class="teachers-img">
     <a href="teacher?id='.$tovs["id"].'"><img src="../images/tovars/b-'.$tovs["imgs"][0]["name"].'" alt=""></a>
     <img src="../images/youtube 1.png" alt="" class="video-btn" data-toggle="modal"
-<<<<<<< HEAD
-    data-src="'.str_replace('https://www.youtube.com/watch?v=','https://www.youtube.com/embed/',$tovs["alias"]).'" data-target="#teachers-modal">
-=======
     data-src="'.str_replace('https://www.youtube.com/watch?v=','https://www.youtube.com/embed/',$tovs["alias"]).'?autoplay=1" data-target="#teachers-modal">
->>>>>>> master
+
     </div>
     <div class="teachers-text-block">
     <span class="teacher-name"><a href="teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/brands/'.$tovs["country"]["img"].'" alt=""></span>
@@ -441,7 +444,6 @@ function CardTeacher($tovs) {
 
     return $q;
 }
-
 
 function makePager($iCurr, $iEnd, $link)
 {

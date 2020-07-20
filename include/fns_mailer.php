@@ -9,7 +9,7 @@ function sendmailer($subject,$body,$toemail){
 	$mail = new PHPMailer();
 	$mail->SMTPSecure 	= "ssl"; 
 	$mail->Port 		= 465;
-	$mail->IsSMTP(); // отсылать используя SMTP
+	//$mail->IsSMTP(); // отсылать используя SMTP
 	$mail->Host     = $mserv; // SMTP сервер
 	$mail->SMTPAuth = true;     // включить SMTP аутентификацию
 	$mail->Username = $mlogin;  // SMTP username
@@ -27,7 +27,7 @@ function sendmailer($subject,$body,$toemail){
 
 	if(!$mail->Send())
 	{
-	// echo "Service Mailer Error: ".$mail->ErrorInfo;
+	echo "Service Mailer Error: ".$mail->ErrorInfo;
 	return false;
 	} else
 	return true;
