@@ -22,7 +22,11 @@
 		Фамилия: <b>'.strip_tags($a['fname']).'</b><br />
 		Возраст: <b>'.strip_tags($a['age']).'</b><br />
 		Язык: <b>'.strip_tags($a['language']).'</b><br />
-		Уровень владения языком: <b>'.strip_tags($a['level']).'</b><br />
+		Уровень владения языком: <b>'.strip_tags($a['level']).'</b><br />';
+		if(isset($a['course'])||$a['course'] !='') {
+			$text.='Курс: <b>'.strip_tags($a['course']).'</b><br />';
+		}
+		$text .= '
 		Описание: <b>'.strip_tags($a['decs']).'</b><br />
 		Телефон: <b>'.strip_tags($a['phone']).'</b><br />
 		Скайп: <b>'.strip_tags($a['name']).'</b><br />

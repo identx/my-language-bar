@@ -2,6 +2,13 @@
 // 	ini_set('error_reporting', E_ALL);
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
+//if ($_SERVER['REQUEST_URI'] == '/ru') {
+//    setcookie("googtrans", $value);
+//} else if ($_SERVER['REQUEST_URI'] == '/en') {
+//    setcookie("googtrans", $value);
+//}
+
+
 @session_start();
 header('Content-type: text/html; charset=utf-8');
 date_default_timezone_set('Asia/Brunei');
@@ -11,12 +18,15 @@ $r=explode('/',$r[0]);
 array_shift($r);
 for($i=1;$i<=count($r);$i++)
 	$opts[$i]=$r[$i-1];
+
 include('include/fns_output.php');
 include('include/fns_engine.php');
 include('include/config.php');
 include('include/fns_db.php');
 include('include/DbSimple/Generic.php');
 include('include/class.catalog.php');
+
+
 
 db_connect();
 

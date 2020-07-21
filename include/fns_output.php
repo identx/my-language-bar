@@ -180,16 +180,23 @@ function output_header()
             <a class="nav-link" href="vacancies">Вакансии</a>
         </li>
     </ul>
-
+   
     <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-            <div class="nav-link btn" id="google_translate_element"></div>
+            <div class="language">
+                <img src="../images/icon-flag/1.png" alt="ru" data-google-lang="ru" class="language__img">
+                <img src="../images/icon-flag/3.png" alt="en" data-google-lang="en" class="language__img">
+            </div>
         </li>
+    </ul>
+
+ 
+    <ul class="navbar-nav mr-auto">
         <li class="nav-item">
             <a class="nav-link" href="skype:languagebar?call"><img src="../images/icons/skype.png" alt="">Language Bar</a>
         </li>
-
     </ul>
+    
     </div>
     </nav>
     </header>
@@ -257,21 +264,19 @@ function output_footer()
     </div>
     </footer>
 
-
+    <script src="../js/google-translate.js"></script>
     <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js">
     <script src="../js/popper.min.js"></script>
     <script src="../js/owl.carousel.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery.maskedinput.min.js"></script>
     <script src="../js/fns.js"></script>
 
+
     
-    <script type="text/javascript">
-			function googleTranslateElementInit() {
-			new google.translate.TranslateElement({pageLanguage: \'en\', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, \'google_translate_element\');
-			}
-	</script>
-	<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    
+    <script src="//translate.google.com/translate_a/element.js?cb=TranslateInit"></script>
 
 
     <script src="../js/script.js?v='.$v.'""></script>';
@@ -437,7 +442,7 @@ function CardTeacher($tovs) {
     <span class="teacher-name"><a href="teacher?id='.$tovs["id"].'">'. $tovs["name"] .'</a> <img class="teachers-flag" src="../images/brands/'.$tovs["country"]["img"].'" alt=""></span>
     <p>Преподает: '.returnLanguage($tovs["attrs"]["yazyki-prepadaet"]["val"], true).'</p>
     <p>Говорит на: '.returnLanguage($tovs["attrs"]["yazyki-govorit"]["val"], false).'</p>
-    <p class="teachers-decs d-none d-sm-block">'.  stristr($tovs["attrs"]["opisanie"]["val"], '*', true) .' <a href="teacher?id='.$tovs["id"].'" class="more-teacher">Подробнее →</a></p>
+    <span class="teachers-decs d-none d-sm-block">'.  stristr($tovs["attrs"]["opisanie"]["val"], '*', true) .' <a href="teacher?id='.$tovs["id"].'" class="more-teacher">Подробнее →</a></span>
     </div>
     </div>
     </div>';
