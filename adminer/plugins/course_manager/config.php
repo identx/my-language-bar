@@ -1,6 +1,6 @@
 <?php
 	$plugdir="catalog";	
-	$conf['plugname']="Управление курсами";
+	$conf['plugname']="Курсы";
 	$conf['version']='1.0';
 	
 	$conf['size']=Array("s"=>Array("w"=>200,"h"=>135),

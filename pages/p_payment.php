@@ -4,14 +4,8 @@ $_SERVER['page']['keyws'] = 'My Language Bar';
 $_SERVER['page']['descr'] = 'My Language Bar - онлайн школа иностранных языков';
 $_SERVER['page']['js'] = '';
 
-
-
 $catalog = new Catalog('mcur_');
 $courses = $catalog->getCats($root=0);
-
-
-
-
 
 ?>
 
@@ -74,7 +68,7 @@ $courses = $catalog->getCats($root=0);
 					</p>
 					<p class="payment-form-text"><img class="course-icon" src="/images/icons/clock-3.svg" alt="">Урок в любом курсе длится 60 минут</p>
 					<p class="payment-form-text"><img class="course-icon" src="/images/icons/coin.svg" alt="">Оплата принимается от 2-х уроков</p>
-					<form action="https://pay.skrill.com" method="post" target="_blank" id="payment-form">
+					<form action="http://languagebar.ru/libs/php-sdk-master/initPaymentApi.php" method="get" target="_blank" id="payment-form">
 						<div class="check-info"></div>
 						<input type="text" id="payment-form-code" placeholder="Код учащегося">
 						<button id="check-code" class="check-code" disabled="disabled">Проверить</button>
@@ -107,16 +101,10 @@ $courses = $catalog->getCats($root=0);
 						<select name="" id="" class="payment-package-select" disabled="disabled">
 							<option value="" >Пакет</option>
 						</select>
-						<input type="hidden" name="pay_to_email" value="demoqco@sun-fish.com"> 
-						<input type="hidden" name="status_url" value="https://example.com/process_payment.cgi"> 
-						<input type="hidden" name="language" value="EN"> 
-						<input class="hidden-amount" type="hidden" name="amount" value="1800"> 
-						<input type="hidden" name="currency" value="RUB"> 
-						<input type="hidden" name="detail1_description" value="Description:"> 
-						<input type="hidden" name="payment_methods" value="ALI"> 
-						<input type="hidden" name="detail1_text" value="Romeo and Juliet (W. Shakespeare)">
-						<input type="hidden" name="logo" value="https://languagebar.ru/images/header-logo.svg"> 
-
+					<!-- 	<input type="hidden" name="sum" class="payment_sum" value="0">
+						<input type="hidden" name="account" class="payment_account" value="none">
+						<input type="hidden" name="desc" class="payment_desc" value="1">		
+						<input type="hidden" name="signature" class="payment_signature" value="0"> -->
 						<button type="submit"  id="payment-form-btn" class="main-btn grey-btn" disabled="disabled">Перейти на страницу оплаты</button>
 
 					</form>
@@ -126,3 +114,4 @@ $courses = $catalog->getCats($root=0);
 		</div>
 	</div>
 </section>
+

@@ -1,10 +1,10 @@
 <?php
 	$plugdir="catalog";	
-	$conf['plugname']="Управление преподавателями";
+	$conf['plugname']="Преподаватели";
 	$conf['version']='1.0';
 	
-	$conf['size']=Array("s"=>Array("w"=>200,"h"=>135),
-						"b"=>Array("w"=>1500,"h"=>1500));
+	$conf['size']=Array("s"=>Array("w"=>130,"h"=>136),
+						"b"=>Array("w"=>175,"h"=>195));
 	define('_DB_PREF_','mcat_');
 	$conf['brand']=Array('w'=>300,'h'=>200);
 	$conf['path_to_image']='../../../../images/tovars/';

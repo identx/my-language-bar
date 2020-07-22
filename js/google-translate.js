@@ -4,7 +4,7 @@ const googleTranslateConfig = {
 
 function TranslateInit() {
     //console.log($.cookie('googtrans'));
-    console.log(document.domain);
+    //console.log(document.location);
 
     let code = TranslateGetCode();
     // Находим флаг с выбранным языком для перевода и добавляем к нему активный класс
@@ -21,10 +21,12 @@ function TranslateInit() {
         pageLanguage: googleTranslateConfig.lang,
     });
 
+    console.table( google.translate.TranslateElement);
+
     // Вешаем событие  клик на флаги
     $('[data-google-lang]').click(function () {
 
-        TranslateSetCookie($(this).attr("data-google-lang"))
+        TranslateSetCookie($(this).attr("data-google-lang"));
         // Перезагружаем страницу
         window.location.reload();
     });
@@ -39,17 +41,13 @@ function TranslateGetCode() {
 function TranslateClearCookie() {
 
     $.cookie('googtrans', null);
-    $.cookie("googtrans", null, {
-        domain: "." + document.domain,
-    });
+    $.cookie("googtrans", null, { path: '/' });
 }
 
 function TranslateSetCookie(code) {
     // Записываем куки /язык_который_переводим/язык_на_который_переводим
 
     $.cookie('googtrans', "/auto/" + code);
-    $.cookie("googtrans", "/auto/" + code, {
-        domain: "." + document.domain,
-    });
+    $.cookie("googtrans", "/auto/" + code, { path: '/' });
 
 }

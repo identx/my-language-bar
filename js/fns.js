@@ -39,31 +39,6 @@ $(function(){
 	}
 
 
-	$('#form').on('submit',function(){
-		var data={};
-		data.name=$('#d_name').val();
-		data.phone=$('#d_phone').val();
-		data.type=$('#d_type').val();
-		data.textarea = $('#textarea-message').val();
-
-		$(this).append('<div></div>');
-		$.post('handlers/h_measure.php',data,function(r){
-			$('#form').find('.loader').add();
-			console.log(r);
-			if(r.status==true) {
-				$('#form').html('<br /><br /><div style="text-align:center"><h1>Ваша заявка успешно отправлена!</h1><h3>Мы свяжемся с вами в ближайшее время!</h3><br /><br /><br /></div>');
-			} else {
-				$('#form').find('.error').text(r.error);
-			}
-			$('#form').find('.loader').remove();
-		},"json");
-		return false;
-	});
-
-
-
-
-
 });
 
 

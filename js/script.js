@@ -14,13 +14,17 @@ $('a[data-value="all-lang"]').on('click', function(e){
 		data.language = $('.payment-languages-select option:selected').text();
 		data.user = $('.alert strong').text();
 		data.package = $('.payment-package-select option:selected').text().split(' -')[0];
-		data.amount = $('.hidden-amount').val();
+		data.amount = $('.payment_sum').val();
+		data.desc = $('.payment_desc').val();
+		data.account = $('.payment_account').val();
+		data.currency = $('.payment_currency').val();
 		console.log(data);
 		$.post('../handlers/add-transaction.php', data, function(r){
-			
-			
+			$('.payment_signature').val(r);
+			$('#payment-form').submit();
 		},"json");
 
+		
 	})
 
 	$(document).on('change', '.payment-package-select', function(){
@@ -116,6 +120,7 @@ function checkCodeValue(){
 		$('#check-code').removeAttr('disabled');
 		$('#check-code').removeClass('grey-btn');
 		$('#check-code').addClass('yellow-btn');
+		$('.payment_account').val($('#payment-form-code').val());
 	} else {
 		$('#check-code').attr('disabled', 'disabled');
 		$('#check-code').addClass('grey-btn');
@@ -137,7 +142,7 @@ function checkPayBtn() {
 }
 
 function getAmount() {	
-			$('.hidden-amount').val($('.payment-package-select option:selected').val());
+			$('.payment_sum').val($('.payment-package-select option:selected').val());
 	}
 
 
