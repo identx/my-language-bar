@@ -1,7 +1,6 @@
 <?php
 
 function engine_get_content($opts){
-
 	switch($opts[2]){
 		default:
 		$a=engine_page('404');
@@ -32,6 +31,12 @@ function engine_get_content($opts){
 		break;
 		case 'checkout':
 		$a=engine_page('checkout');
+		break;
+		case 'payment-success':
+		$a=engine_page('payment-success');
+		break;
+		case 'payment-failed':
+		$a=engine_page('payment-failed');
 		break;
 		
 	}

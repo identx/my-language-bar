@@ -978,6 +978,7 @@ footer .footer-identx {
 
 .teachers-img img {
     width: 130px;
+    border-radius: 5px;
 }
 
 .main_teachers .language-link {
@@ -1319,4 +1320,98 @@ option {
 .page-404 a {
     color: #5e80cf;
     text-decoration: underline;
+}
+
+.payment-success, .payment-failed {
+    padding: 100px 0;
+    min-height: 550px;
+}
+
+.payment-success h1 {
+    color: #07bd07;
+}
+
+.payment-failed h1 {
+    color: #ac0303;
+}
+
+svg.am_Success_Icon,
+svg.am_Error_Icon{
+  width: 124px; /* Размер иконок */
+  margin: auto auto;
+}
+.am_sdp_Header_Status{
+  color: #fff;
+  font-size: 140%;
+}
+svg.am_Success_Icon path, svg.am_Success_Icon polyline, svg.am_Success_Icon line {
+    stroke: #07bd07; /* Цвет иконок */
+}
+
+svg.am_Error_Icon path, svg.am_Error_Icon polyline, svg.am_Error_Icon line {
+    stroke: #ac0303;
+}
+svg.am_Success_Icon path, svg.am_Success_Icon polyline, svg.am_Success_Icon line,
+svg.am_Error_Icon path, svg.am_Error_Icon polyline, svg.am_Error_Icon line{
+  fill: none;
+  stroke-width: 15; /* Толщина линий */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+svg.am_Success_Icon .am_SVG_circle,
+svg.am_Error_Icon .am_SVG_circle{
+  stroke-dasharray: 1460;
+  animation: am_SVG_circle 2s ease-in ;
+}
+
+svg.am_Success_Icon .am_SVG_check{
+  stroke-dasharray: 630;
+  animation: am_SVG_check 2s ease-in ;
+}
+
+svg.am_Error_Icon .am_SVG_error1{
+  stroke-dasharray: 630;
+  animation: am_SVG_error1 2s ease-in ;
+}
+svg.am_Error_Icon .am_SVG_error2{
+  stroke-dasharray: 630;
+  animation: am_SVG_error2 3s ease-in ;
+}
+
+@keyframes am_SVG_circle {
+    0%, 60% {
+        stroke-dashoffset: -1460;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes am_SVG_check {
+    0% {
+        stroke-dashoffset: 630;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes am_SVG_error1 {
+    0% {
+        stroke-dashoffset: 630;
+    }
+    20% {
+        stroke-dashoffset: 0;
+    }
+}
+@keyframes am_SVG_error2 {
+    0%, 20% {
+        stroke-dashoffset: 630;
+    }
+    40% {
+        stroke-dashoffset: 0;
+    }
+}
+
+.svg-icon {
+    text-align: center;
 }

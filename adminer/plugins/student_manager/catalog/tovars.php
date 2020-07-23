@@ -5,8 +5,11 @@ global $conf;
 
 
 
-function get_transaction($name) {
-	$sql = "SELECT `id`, `sum`, `course`, `package`, `datatime`, `status` FROM `transactions` WHERE `user` = '$name' ";
+function get_transaction($id) {
+	$sql = "SELECT  `sum`,  `mcur_nodes`.`name` AS `course`, `package`, `datatime`, `status` FROM `transactions`
+	LEFT JOIN `mcur_nodes` ON `transactions`.`course` = `mcur_nodes`.`id`
+	 WHERE `user` = '$id' AND `status` = 1";
+	
 	return db_query($sql);
 }
 
@@ -130,7 +133,7 @@ if(!isset($_GET['id'])){
 	//форма редактирования
 	$ID=$_GET['id'];
 	if($ID==0){
-		$tovar=array('id'=>0,'cat'=>($_GET['cat']>0)?$_GET['cat']:'1','templ'=>'1','opts'=>'0','article'=>'','brand'=>'0','name'=>'','name_def'=>'','alias'=>'','price'=>'0','price_d'=>'0','count'=>'1');	
+		$tovar=array('id'=>0,'cat'=>($_GET['cat']>0)?$_GET['cat']:'1','templ'=>'1','opts'=>'0','article'=>'','brand'=>'0','name'=>'','name_def'=>'','alias'=>'','price'=>'0','price_d'=>'0','count'=>'0');	
 	}else{
 		$sql="SELECT * FROM `"._DB_PREF_."tvrs` WHERE `id`='$ID'";
 		$tovar=current(db_getItems($sql));			
@@ -152,7 +155,7 @@ if(!isset($_GET['id'])){
 //	if($tovar['name_def']!='') $TAG['content'].='<div class="element_wrapper cb">Название из прайса<input class="def_val" type="text" disabled="disabled" name="name_def" value="'.htmlspecialchars($tovar['name_def']).'"/></div>';
 //	$TAG['content'].='<div class="def_val element_wrapper short cb">Цена<input type="text" class="def_val" name="price" value="'.htmlspecialchars($tovar['price']).'"/></div>';
 //	$TAG['content'].='<div class="def_val element_wrapper short">Цена со скидкой<input type="text" class="def_val" name="price_d" value="'.htmlspecialchars($tovar['price_d']).'"/></div>';
-	$TAG['content'].='<div class="def_val element_wrapper short cb">Оплачено уроков<input type="text" name="count" class="spinner def_val" value="'.htmlspecialchars($tovar['count']).'"/></div>';
+	$TAG['content'].='<div class="def_val element_wrapper short cb">Проведено уроков<input type="text" name="count" class="spinner def_val" value="'.htmlspecialchars($tovar['count']).'"/></div>';
 	$TAG['content'].='<div class="def_val element_wrapper short">Скайп<input type="text" class="def_val" name="article" value="'.htmlspecialchars($tovar['article']).'"/></div>';
 //	$TAG['content'].='<div class="def_val element_wrapper shortest">Скрыть<br /><select class="'.(($tovar['opts'] & 1==1)?' attention':'').'" id="sel_hide" name="hide"><option value="0" >Нет</option><option '.(($tovar['opts'] & 1==1)?'selected="selected"':'').' value="1">Да</option></select></div>';
 
@@ -163,7 +166,11 @@ if(!isset($_GET['id'])){
 	foreach($firms as $one){
 		$TAG['content'].='<option value="'.$one['id'].'">'.$one['name'].'</option>';
 	}
-	$TAG['content'].='</select></div><div class="def_val element_wrapper short">Код<span class="sn_name">'. substr(md5($tovar['id']), 0, 7) .'</span></div><div class="element_wrapper shortest"><img id="brandimg" src="images/noimage.png" /></div>
+	$TAG['content'].='</select></div>';
+	if($tovar['id'] > 0) {
+		$TAG['content'].= '<div class="def_val element_wrapper short">Код<span class="sn_name">'. substr(md5($tovar['id']), 0, 7) .'</span></div>';
+			}
+	$TAG['content'].='<div class="element_wrapper shortest"><img id="brandimg" src="images/noimage.png" /></div>
 	</div>';
 	/*////ИЗОБРАЖЕНИЯ////*/
 	$TAG['content'].='
@@ -257,24 +264,36 @@ if(!isset($_GET['id'])){
 	<div>
 	<table class="table_payment">
 	<tr>
-	<th>id</th>
-	<th>Сумма</th>
+	<th>Стоимость</th>
 	<th>Курс</th>
-	<th>Пакет</th>
+	<th>Пакет (уроков) </th>
 	<th>Дата и время</th>
 	<th>Статус</th>
 	</tr>';
 
-	foreach (get_transaction($tovar['name']) as $v) {
+	$sum_packages = 0;
+	foreach (get_transaction($tovar['id']) as $v) {
+		$sum_packages+=$v['package'];
+		if ($v['status'] == 1) {
+			$v['status'] = 'Оплачено';
+		}
 		$TAG['content'] .='<tr>';
 		foreach ($v as $n) {
+
+
 		$TAG['content'] .= '<td>'.$n.'</td>';		
 	}
 		$TAG['content'] .= '</tr>';
 	}
 
 
-	$TAG['content'] .='</table>
+	$TAG['content'] .='
+	<tr>
+	<td colspan="5">
+	<p>Оплачено уроков: <strong>'.$sum_packages.'</strong></p>
+	</td>
+
+	</table>
 	</div>
 	</form><br /><br /><br /><br /><br />';
 }

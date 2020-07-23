@@ -1,26 +1,33 @@
 $(function(){
 
 
-$('a[data-value="all-lang"]').on('click', function(e){
-	e.preventDefault();
-	$('.teacher-wrapper').show();
-})
- filterLanguage($('.language-link-filter'));
+	$('a[data-value="all-lang"]').on('click', function(e){
+		e.preventDefault();
+		$('.teacher-wrapper').show();
+	})
+	filterLanguage($('.language-link-filter'));
 
 	$('#payment-form-btn').on('click', function(e){
 		e.preventDefault();
 		let data = {};
-		data.course = $('.payment-courses-select option:selected').text();
+		data.course = $('.payment-courses-select option:selected').val();
 		data.language = $('.payment-languages-select option:selected').text();
-		data.user = $('.alert strong').text();
-		data.package = $('.payment-package-select option:selected').text().split(' -')[0];
-		data.amount = $('.payment_sum').val();
+		data.user = $('.alert strong').data('id');
+		data.package = $('.payment-package-select option:selected').text().split(' ур')[0];
+		data.sum = $('.payment_sum').val();
+		
+		let desc = $('.payment-courses-select option:selected').text()+' '+$('.payment-package-select option:selected').text().split(' -')[0];
+		$('.payment_desc').val(desc);
 		data.desc = $('.payment_desc').val();
+		let id = $('.payment_account').val(data.user);
 		data.account = $('.payment_account').val();
 		data.currency = $('.payment_currency').val();
-		console.log(data);
 		$.post('../handlers/add-transaction.php', data, function(r){
-			$('.payment_signature').val(r);
+			
+			$('.payment_signature').val(r['sign']);
+			$('.payment_account').val(r['id']);
+			
+
 			$('#payment-form').submit();
 		},"json");
 
@@ -99,6 +106,7 @@ $('a[data-value="all-lang"]').on('click', function(e){
 		$(".dropdown").on('shown.bs.dropdown', function () {
 
     //Start
+    console.log("dada");
     $(this).children().css('width','327px');
     $(this).children('.dropdown-toggle').addClass('btn-active');
 
@@ -120,7 +128,7 @@ function checkCodeValue(){
 		$('#check-code').removeAttr('disabled');
 		$('#check-code').removeClass('grey-btn');
 		$('#check-code').addClass('yellow-btn');
-		$('.payment_account').val($('#payment-form-code').val());
+		
 	} else {
 		$('#check-code').attr('disabled', 'disabled');
 		$('#check-code').addClass('grey-btn');
@@ -142,8 +150,8 @@ function checkPayBtn() {
 }
 
 function getAmount() {	
-			$('.payment_sum').val($('.payment-package-select option:selected').val());
-	}
+	$('.payment_sum').val($('.payment-package-select option:selected').val());
+}
 
 
 

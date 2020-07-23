@@ -4,7 +4,7 @@ function output_header()
 {
     global $opts;
     global $discount;
-    $v = 17;
+    $v = 18;
     $r = '<!DOCTYPE html>
     <!--[if IE 8]> <html lang="ru" class="ie8 no-js"> <![endif]-->
     <!--[if IE 9]> <html lang="ru" class="ie9 no-js"> <![endif]-->
@@ -402,15 +402,14 @@ function returnLanguage($langs, $isLink) {
             if($isLink === true) {
                
                      $q .= '<a href="" class="language-link language-link-filter" data-value="'.$lang.'">'.$language.'</a>';
+                    // if(++$i === $numItems) {
+                    //     $q .= ", ";
+                    // }
+                    $q .= " ";
 
             } else {
                 $q .= '<span class="lang-info">'.$language.'</span>';
             }
-        }
-
-
-        if(++$i === $numItems && $isLink !== "teacherCurse") {
-            $q .= ", ";
         }
     }
     return $q;
